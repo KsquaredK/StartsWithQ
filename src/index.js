@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { StartsWithQ } from './components/StartsWithQ';
+import { SearchResultProvider } from './components/search/SearchProvider'; 
 import './index.css';
-import { StartsWithQ } from './StartsWithQ';
 
 ReactDOM.render(
   <React.StrictMode>
-    <StartsWithQ />
+    <SearchResultProvider>
+      <StartsWithQ />
+    </SearchResultProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
