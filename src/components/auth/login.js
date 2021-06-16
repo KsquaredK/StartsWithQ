@@ -9,10 +9,10 @@ export const Login = props => {
     const existDialog = useRef()
     const history = useHistory()
 
-    // const existingUserCheck = () => {
-    //     return fetch(`http://localhost:8088/customers?email=${email.current.value}`)
-    //         .then(res => res.json())
-    //         .then(user => user.length ? user[0] : false)
+    const existingUserCheck = () => {
+       return fetch(`http://localhost:8088/users?email=${email.current.value}`)
+           .then(res => res.json())
+           .then(user => user.length ? user[0] : false)
     }
 
     const handleLogin = (e) => {
