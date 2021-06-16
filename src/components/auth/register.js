@@ -9,43 +9,43 @@ export const Register = (props) => {
     const conflictDialog = useRef()
     const history = useHistory()
 
-    // const existingUserCheck = () => {
-    //     return fetch(`http://localhost:8088/customers?email=${email.current.value}`)
-    //         .then(res => res.json())
-    //         .then(user => !!user.length)
+   const existingUserCheck = () => {
+      return fetch(`http://localhost:8088/users?email=${email.current.value}`)
+         .then(res => res.json())
+        .then(user => !!user.length)
     }
 
-    // const handleRegister = (e) => {
-    //     e.preventDefault()
+const handleRegister = (e) => {
+         e.preventDefault()
 
 
-    //     existingUserCheck()
-    //         .then((userExists) => {
-    //             if (!userExists) {
-    //                 fetch("http://localhost:8088/customers", {
-    //                     method: "POST",
-    //                     headers: {
-    //                         "Content-Type": "application/json"
-    //                     },
-    //                     body: JSON.stringify({
-    //                         email: email.current.value,
-    //                         name: `${firstName.current.value} ${lastName.current.value}`
-    //                     })
-    //                 })
-    //                     .then(res => res.json())
-    //                     .then(createdUser => {
-    //                         if (createdUser.hasOwnProperty("id")) {
-    //                             localStorage.setItem("kennel_customer", createdUser.id)
-    //                             history.push("/")
-    //                         }
-    //                     })
-    //             }
-    //             else {
-    //                 conflictDialog.current.showModal()
-    //             }
-    //         })
+        existingUserCheck()
+            .then((userExists) => {
+                if (!userExists) {
+                    fetch("http://localhost:8088/customers", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            email: email.current.value,
+                            name: `${firstName.current.value} ${lastName.current.value}`
+                        })
+                    })
+                        .then(res => res.json())
+                        .then(createdUser => {
+                            if (createdUser.hasOwnProperty("id")) {
+                                localStorage.setItem("kennel_customer", createdUser.id)
+                                history.push("/")
+                            }
+                        })
+                }
+                else {
+                    conflictDialog.current.showModal()
+                }
+            })
         
-    // }
+    }
 
     return (
         <main style={{ textAlign: "center" }}>
@@ -75,4 +75,4 @@ export const Register = (props) => {
             </form>
         </main>
     )
-}
+    };
