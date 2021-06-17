@@ -1,47 +1,41 @@
-import React from "react"
-// import { Route, Redirect } from "react-router-dom";
-// import { NavBar } from "./nav/NavBar";
-// import { Login } from "./auth/login";
-// import { Register } from "./auth/register";
-import logo from "./auth/Qlogo.png";
-import { useContext, useEffect } from "react";
-import { FindWordContext } from './findWord/FindWordProvider';
-import "./StartsWithQ.css"
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
+import { ApplicationViews } from "./ApplicationViews";
+import { NavBar } from "./nav/NavBar";
+import { Login } from "./auth/Login";
+import { Register } from "./auth/Register";
+import "./StartsWithQ.css";
 
+export const StartsWithQ = () => (
+  <>
+    <Route
+      render={() => {
+        if (localStorage.getItem("startswithq_user")) {
+          return (
+            <>
+              <NavBar />
+              {/* <ApplicationViews /> */}
+            </>
+          );
+        } else {
+          return <Redirect to="/login" />;
+        }
+      }}
+    />
 
-export const StartsWithQ = ()  => {
-    const { foundWords, getFoundWord } = useContext(FindWordContext);
+    <Route path="/login">
+      <Login />
+    </Route>
+    <Route path="/register">
+      <Register />
+    </Route>
+  </>
+);
 
-    useEffect(
-        // eslint-disable-next-line
-        () => { getFoundWord() },
-        []
-    )
-    return (
-        <>
-    <h2>Starts With Q</h2>
-    <strong>your wordgame superpower</strong>
-        <div>Find tricky words that use Q, X or Z</div>
-        <h2>Here are your words:</h2> 
-        <div className="logo">
-          <img src={logo} />
-        </div>
-    
-    </>
-  );
-    }
-
-//     <div className="foundWords">
-//     {
-//         foundWords.map(word => {
-//             return <FindWordDetail wordObject={word} key={word.id} />
-//         })
-//     }
-// </div>
-
-/* Working with data: 
-wordList.push(<li>${res[i].word}</li>);
-(.word is a property, res is a json response array 
-filled with objects, to which word is one of the properties. 
-So here we’re accessing the object item in the array through 
-its index (res[i]), and accessing its word property with .word.) */
+// Mock authentication process:
+// When the application first renders, it checks for a startswithq-user item in local storage.
+// If the item is there, the user is authenticated and the application renders.
+// If the item is not there, render the Login form instead.
+// When the user fills out the form and clicks the submit button, query the API to see if a user with the specified email already exists.
+// If the user already exists, set the startswithq_user_customer item in local storage, and display the Dashboard.
+// If the user does not exist, alert that fact to the user.

@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import "./NavBar.css";
 
 export const NavBar = (props) => {
+  const Logout = () => {
+    localStorage.removeItem("startswithq_user")
+}
   return (
     <ul className="navbar">
       <li className="navbar__item active">
@@ -25,10 +28,12 @@ export const NavBar = (props) => {
           Words With Z
         </Link>
       </li>
-      <li className="navbar__item">
-        <Link className="navbar__link" to="/employees">
+      <li onClick={Logout} className="navbar__item">
+        <Link className="navbar__link" to="/">
           Logout
         </Link>
+
+        
         {/* document.addEventListener(
     "click",
     (clickEvent) => {

@@ -47,8 +47,9 @@ fieldset {
 }
 
 .form--login {
-    background-position-x: right;
+    background-position-x: bottom;
     background-image: url("./Qlogo.png");
+    background-size: 20%;
     z-index: 1;
     min-height: 25rem;
     min-width: 45rem;

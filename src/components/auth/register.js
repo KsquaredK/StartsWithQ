@@ -1,6 +1,6 @@
  import React, { useRef } from "react"
 import { useHistory } from "react-router-dom"
-import "./login.css"
+import "./Login.css"
 
 export const Register = (props) => {
     const firstName = useRef()
@@ -22,7 +22,7 @@ const handleRegister = (e) => {
         existingUserCheck()
             .then((userExists) => {
                 if (!userExists) {
-                    fetch("http://localhost:8088/customers", {
+                    fetch("http://localhost:8088/users", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
