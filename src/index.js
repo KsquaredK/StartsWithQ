@@ -1,14 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { StartsWithQ } from './components/StartsWithQ';
-import { SearchResultProvider } from './components/search/SearchProvider'; 
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import { StartsWithQ } from "./components/StartsWithQ";
+import "./index.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <SearchResultProvider>
+    <Router>
       <StartsWithQ />
-    </SearchResultProvider>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

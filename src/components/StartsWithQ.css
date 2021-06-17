@@ -32,3 +32,15 @@ strong {
 address {
   margin: 0 0 1.5em;
 }
+
+logo {
+    background-position-x: right;
+    background-image: url("./auth/Qlogo.png");
+    /* background-size: 250px 250 px; */
+    z-index: -1;
+    min-height: 25rem;
+    min-width: 45rem;
+    background-color: hsla(0,0%,100%,0.40);
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+}

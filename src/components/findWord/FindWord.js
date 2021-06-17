@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import "./Search.css";
+import "./FindWord.css";
 import { FindWordContext } from './FindWordProvider';
 
 
