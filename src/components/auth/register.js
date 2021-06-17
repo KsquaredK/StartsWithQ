@@ -35,7 +35,7 @@ const handleRegister = (e) => {
                         .then(res => res.json())
                         .then(createdUser => {
                             if (createdUser.hasOwnProperty("id")) {
-                                localStorage.setItem("kennel_customer", createdUser.id)
+                                localStorage.setItem("startswithq_user", createdUser.id)
                                 history.push("/")
                             }
                         })

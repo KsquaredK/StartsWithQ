@@ -2,20 +2,20 @@ import React, { useState, createContext } from "react";
 
 // The context is imported and used by individual components that need data.
 // Nothing is stored in createContext when it is defined.
-export const SearchResultContext = createContext();
+export const FindWordContext = createContext();
 
 // This component establishes what data can be used.
 // words is an empty array, setWords is a function that modifies it.
 // useState will hold and set the array of words.
-export const SearchResultProvider = (props) => {
-    const [searchResults, setSearchResult] = useState([]);
+export const FindWordProvider = (props) => {
+    const [foundWords, setFoundWord] = useState([]);
   // const [searchTerms, setSearchTerm] = useState("");
 
-  const getSearchResult = () => {
+  const getFoundWord = () => {
     // words: fetch that dataset. ex: return 6-letter words that start with q
     return fetch("http://localhost:8088/words")
       .then((res) => res.json())
-      .then(setSearchResult);
+      .then(setFoundWord);
   };
 
 //   ??? is there an application for this in my search capabilities?   
@@ -52,10 +52,10 @@ export const SearchResultProvider = (props) => {
  
 
     return (
-        <SearchResultContext.Provider
+        <FindWordContext.Provider
         value={{
-            searchResults,
-            getSearchResult,
+            foundWords,
+            getFoundWord,
             // addWord,
             // deleteWord,
             // updateWord,
@@ -64,6 +64,6 @@ export const SearchResultProvider = (props) => {
             // setSearchTerms,
         }}>
         {props.children}
-        </SearchResultContext.Provider>
+        </FindWordContext.Provider>
   );
       };

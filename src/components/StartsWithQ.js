@@ -3,17 +3,18 @@ import React from "react"
 // import { NavBar } from "./nav/NavBar";
 // import { Login } from "./auth/login";
 // import { Register } from "./auth/register";
+import logo from "./auth/Qlogo.png";
 import { useContext, useEffect } from "react";
-import { SearchResultContext } from './search/SearchProvider';
+import { FindWordContext } from './findWord/FindWordProvider';
 import "./StartsWithQ.css"
 
 
 export const StartsWithQ = ()  => {
-    const { searchResults, getSearchResult } = useContext(SearchResultContext);
+    const { foundWords, getFoundWord } = useContext(FindWordContext);
 
     useEffect(
         // eslint-disable-next-line
-        () => { getSearchResult() },
+        () => { getFoundWord() },
         []
     )
     return (
@@ -22,6 +23,25 @@ export const StartsWithQ = ()  => {
     <strong>your wordgame superpower</strong>
         <div>Find tricky words that use Q, X or Z</div>
         <h2>Here are your words:</h2> 
+        <div className="logo">
+          <img src={logo} />
+        </div>
+    
     </>
   );
     }
+
+//     <div className="foundWords">
+//     {
+//         foundWords.map(word => {
+//             return <FindWordDetail wordObject={word} key={word.id} />
+//         })
+//     }
+// </div>
+
+/* Working with data: 
+wordList.push(<li>${res[i].word}</li>);
+(.word is a property, res is a json response array 
+filled with objects, to which word is one of the properties. 
+So here we’re accessing the object item in the array through 
+its index (res[i]), and accessing its word property with .word.) */
