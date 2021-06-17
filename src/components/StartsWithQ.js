@@ -1,10 +1,17 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import { ApplicationViews } from "./ApplicationViews";
+// import { ApplicationViews } from "./ApplicationViews";
 import { NavBar } from "./nav/NavBar";
 import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
 import "./StartsWithQ.css";
+
+/* +++++++ PSEUDO-CODE ++++++++  
+export function: if user is in local storage, render navbar and application views,
+else redirect to login (with routes to those two auth modules)
+*/
+
+
 
 export const StartsWithQ = () => (
   <>
