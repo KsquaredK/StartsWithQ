@@ -5,17 +5,31 @@ import React from "react"
 // import { Register } from "./auth/register";
 
 import { useContext, useEffect } from "react";
-import { FindWordContext } from './findWord/FindWordProvider';
+import { FindWordContext } from './FindWordProvider';
 import "./FindWord.css"
 
+// 
+// pull data from db, instead of using below arrays?
+// const letterOptions = [
+//   { value: 'q', label: 'Q' },
+//   { value: 'x', label: 'X' },
+//   { value: 'Z', label: 'Z' }
+// ]
 
-export const FindWord = ()  => {
+// const positionOptions = [
+//   { value: 'start', label: 'starts with' },
+//   { value: 'occur', label: 'has a' }
+// ]
+
+
+export const FindWordList = ()  => {
     const { foundWords, getFoundWord } = useContext(FindWordContext);
 
     useEffect(
         // eslint-disable-next-line
         () => { getFoundWord() },
-        []
+        [],
+        console.log(foundWords)
     )
     return (
         <>

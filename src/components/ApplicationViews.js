@@ -1,8 +1,10 @@
-/* 
+
  import React from "react";
  import { Route } from "react-router-dom";
  import { FindWordProvider } from "./findWord/FindWordProvider";
  import { FindWordList } from "./findWord/FindWordList";
+ import { FindWord } from "./findWord/FindWord";
+  /* 
  import { FindWordForm } from "./findWord/FindWordForm";
  import { FindWordDetail } from "./findWord/FindWordDetail";
  import { QProvider } from "./qWord/QWordProvider";
@@ -11,7 +13,7 @@
  import { XList } from "./xWord/XWordList";
  import { ZProvider } from "./ZWord/ZWordProvider";
  import { ZList } from "./zWord/ZWordList";
- import { ZDetail } from "./zWord/ZWordDetail";
+ import { ZDetail } from "./zWord/ZWordDetail"; */
  import logo from "./auth/Qlogo.png";
 
  /* +++++++ PSEUDO-CODE ++++++++  
@@ -23,7 +25,7 @@
 */
 
 
-/*
+
 export const ApplicationViews = () => {
   return (
     <>
@@ -31,23 +33,23 @@ export const ApplicationViews = () => {
         <h1>Starts With Q</h1>
         <em>your wordgame superpower</em>
         <div className="logo">
-          <img src={logo} />
+          <img src={logo} alt="Starts With Q logo" />
         </div>
       </Route>
       <FindWordProvider>
-        <QWordProvider>
+       {/* <QWordProvider>
           <XWordProvider>
-            <ZWordProvider>
+            <ZWordProvider>  */}
               <Route exact path="/">
                 <FindWord />
               </Route>
-              <Route path="/words/search">
+              {/* <Route path="/words/search">
                 <FindWordForm />
-              </Route>
+              </Route> */}
               <Route path="/words/list">
                 <FindWordList />
               </Route>
-              <Route path="/qWords">
+              {/* <Route path="/qWords">
                 <QWordList />
               </Route>
               <Route path="/qWords/detail/:qWordId(\d+)">
@@ -63,17 +65,17 @@ export const ApplicationViews = () => {
                 <ZWordList />
               </Route>
               <Route path="/zWords/detail/:zWordId(\d+)">
-                <ZWordDetail />
+                <ZWordDetail /> 
               </Route>
             </XWordProvider>
           </ZWordProvider>
-        </QWordProvider>
+        </QWordProvider> */}
       </FindWordProvider>
     </>
   );
 };
 
- <Route path="/zWords/edit/:zWordId(\d+)">
-                <ZWordForm />
-                </Route>
-                */
+//  <Route path="/zWords/edit/:zWordId(\d+)">
+//                 <ZWordForm />
+//                 </Route>
+//                 */
