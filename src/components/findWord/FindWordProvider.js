@@ -10,17 +10,44 @@ export const FindWordContext = createContext();
 // useState will hold and set the array of words.
 export const FindWordProvider = (props) => {
     const [foundWords, setFoundWords] = useState([]);
-    // const [searchTerms, setSearchTerm] = useState("");
+    const [searchLetters, setSearchLetters] = useState ([]);
 
   const getFoundWords = () => {
     // words: fetch that dataset. ex: return 6-letter words that start with q
-    return fetch("http://localhost:8088/words")
-      .then((res) => res.json())
-      .then((data) => setFoundWords(data));
-    
-  };
+   fetch("https://api.datamuse.com/words?sp=x*")
+      .then(res => res.json())
+      .then(setFoundWords) 
+  }
+  const getSearchLetters = () => {
+    fetch("https://localhost:8088/searchLetters")
+    .then(res => res.json())
+      .then(setSearchLetters)  
+  }
 
-//   ??? is there an application for this in my search capabilities?   
+    return (
+        <FindWordContext.Provider
+        value={{
+            foundWords,
+            getFoundWords,
+            searchLetters,
+            getSearchLetters,
+            // addWords,
+            // deleteWord,
+            // updateWord,
+            // getWordById,
+        //     searchTerms,
+        //     setSearchTerms,
+        // 
+      }}>
+        {props.children}
+        </FindWordContext.Provider>
+  );
+    }
+
+
+//MORE FETCH REQUESTS as I add functionality
+
+//  ??? is there an application for this in my search capabilities?   
   //  const getSearchResultById = (searchResultId) => {
   //   return fetch(`https://api.datamuse.com/words?/${wordId}`).then((res) =>
   //     res.json()
@@ -51,23 +78,3 @@ export const FindWordProvider = (props) => {
   //   return fetch(`http://localhost:8088/words?_embed=userWords/${wordId}`, {
   //     method: "DELETE",
   //   }).then(getWords;
- 
-
-    return (
-        <FindWordContext.Provider
-        value={{
-            foundWords,
-            getFoundWords,
-            setFoundWords,
-            // addWords,
-            // deleteWord,
-            // updateWord,
-            // getWordById,
-        //     searchTerms,
-        //     setSearchTerms,
-        // 
-      }}>
-        {props.children}
-        </FindWordContext.Provider>
-  );
-      };

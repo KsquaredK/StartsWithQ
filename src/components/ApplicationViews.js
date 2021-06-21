@@ -1,12 +1,12 @@
 
  import React from "react";
  import { Route } from "react-router-dom";
- import { FindWordProvider } from "./findWord/FindWordProvider";
- import { FindWordList } from "./findWord/FindWordList";
- import { FindWord } from "./findWord/FindWord";
-  /* 
- import { FindWordForm } from "./findWord/FindWordForm";
- import { FindWordDetail } from "./findWord/FindWordDetail";
+ import { FindWordProvider } from "./FindWord/FindWordProvider";
+ import { FindWordList } from "./FindWord/FindWordList";
+ import { FindWord } from "./FindWord/FindWord";
+ import { UserProvider } from "./user/UserProvider"; 
+ import { FindWordSearch } from "./FindWord/FindWordSearch";
+  /* import { FindWordDetail } from "./findWord/FindWordDetail";
  import { QProvider } from "./qWord/QWordProvider";
  import { QList } from "./qWord/QWordList";
  import { XProvider } from "./xWord/XWordProvider";
@@ -30,22 +30,21 @@ export const ApplicationViews = () => {
   return (
     <>
     <Route exact path="/">
-        <h1>Starts With Q</h1>
-        <em>your wordgame superpower</em>
         <div className="logo">
           <img src={logo} alt="Starts With Q logo" />
         </div>
       </Route>
       <FindWordProvider>
+        <UserProvider>
        {/* <QWordProvider>
           <XWordProvider>
             <ZWordProvider>  */}
               <Route exact path="/">
                 <FindWord />
               </Route>
-              {/* <Route path="/words/search">
-                <FindWordForm />
-              </Route> */}
+              <Route path="/words/search">
+                <FindWordSearch />
+              </Route>
               <Route path="/words/list">
                 <FindWordList />
               </Route>
@@ -70,6 +69,7 @@ export const ApplicationViews = () => {
             </XWordProvider>
           </ZWordProvider>
         </QWordProvider> */}
+        </UserProvider>
       </FindWordProvider>
     </>
   );

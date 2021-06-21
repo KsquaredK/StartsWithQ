@@ -3,7 +3,7 @@ import React, { useState, createContext } from "react";
 
 // The context is imported and used by individual components that need data.
 // Nothing is stored in createContext when it is defined.
-export const userContext = createContext();
+export const UserContext = createContext();
 
 // This component establishes what data can be used.
 // words is an empty array, setWords is a function that modifies it.
@@ -48,7 +48,7 @@ export const UserProvider = (props) => {
  
 
     return (
-        <userContext.Provider
+        <UserContext.Provider
         value={{
             users,
             getUsers,
@@ -57,6 +57,6 @@ export const UserProvider = (props) => {
             // getUserById,
         }}>
         {props.children}
-        </userContext.Provider>
+        </UserContext.Provider>
   );
       };
