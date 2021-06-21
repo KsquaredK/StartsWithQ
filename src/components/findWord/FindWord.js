@@ -1,31 +1,18 @@
-import React, { useState, useEffect, useContext } from "react";
-import { FindWordContext } from "./FindWordProvider"; 
-import { UserContext } from "../user/UserProvider"
-import { useHistory} from "react-router-dom";
-import "./FindWord.css";
+import React from "react";
+//  import { useContext, useEffect, useState } from "react";
+import { FindWordSearch } from "./FindWordSearch";
+// import { FindWordContext} from "./FindWordProvider"
+// import "./FindWord.css";
 
-
+// const { getAnimalById, updateAnimal } = useContext(AnimalContext);
 
 export const FindWord = () => {
-  const { foundWords, getFoundWords } = useContext(FindWordContext);
-  const { user, getUsers } = useContext(UserContext);
-  const [isLoading, setIsLoading] = useState(true);
-  const history = useHistory();
-
-  /*to control user input, define it from the outset */
-  const [newWordsObj, setNewWords] = useState( {
-  word: "",
-  searchLetterId: "",
-  userId: parseInt(localStorage.getItem("startswithq_user")),
-  timestamp: ""
-});
 return (
   <>
-    <h2>your wordgame superpower</h2>
-        <div className="subHeader">Find tricky words that use Q, X or Z</div>
-      <div className="findWordSearch">
-          Start here:
-      </div>
+    <article>
+      <h4>your wordgame superpower</h4>
+        <div className="search"><FindWordSearch /></div>
+    </article>
   </>
 )
 }

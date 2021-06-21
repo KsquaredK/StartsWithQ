@@ -1,8 +1,5 @@
 import React from "react"
-// import { Route, Redirect } from "react-router-dom";
-// import { NavBar } from "./nav/NavBar";
-// import { Login } from "./auth/login";
-// import { Register } from "./auth/register";
+import { Route, Redirect } from "react-router-dom";
 
 import { useContext, useEffect } from "react";
 import { FindWordContext } from './FindWordProvider';
