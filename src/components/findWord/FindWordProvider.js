@@ -14,12 +14,14 @@ export const FindWordProvider = (props) => {
 
   const getFoundWords = () => {
     // words: fetch that dataset. ex: return 6-letter words that start with q
-   fetch("https://api.datamuse.com/words?sp=x*")
+   fetch("https://api.datamuse.com/words?sp=q*")
       .then(res => res.json())
       .then(setFoundWords) 
+      console.log(setFoundWords)
   }
+
   const getSearchLetters = () => {
-    fetch("https://localhost:8088/searchLetters")
+    fetch("http://localhost:8088/searchLetters")
     .then(res => res.json())
       .then(setSearchLetters)  
   }

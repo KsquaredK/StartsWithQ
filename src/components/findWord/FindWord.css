@@ -2,6 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;1,900&family=Stint+Ultra+Expanded&display=swap');
 /*Typography
 --------------------------------------------------------------*/
+
+/* Palette --------------------
+Thistle: C3B2CB,
+Yellow Green Crayola: CDDE9D,
+Pale Spring Bud: E6E7BB,
+Chinese Red: a3311d
+Dirty Light Yellow: fafce7
+________________________________*/
+
 body,
 button,
 input,
@@ -10,7 +19,7 @@ textarea {
   color: #404040;
   font-family: "Comfortaa", Arial, sans-serif;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.5; 
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -26,6 +35,10 @@ p {
   color: darkslateblue;
 }
 
+article {
+  background-color: E6E7BB;
+}
+
 strong {
   font-weight: bold;
 }
@@ -33,18 +46,42 @@ strong {
 address {
   margin: 0 0 1.5em;
 }
-  img {
+img {
   max-width: 30%;
   height: auto;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
+/* .findWordForm {
+  {
+    display: flex;
+    flex-direction: column;
+  }
+} */
 .subHeader {
   text-align: center
 }
-.findWordSearch {
-  text-align: center
+.findWordForm {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-group{
+    max-width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.form-control {
+  max-width: 5%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  text-align: center;
 }
 
 /* dropdown {

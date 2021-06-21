@@ -7,6 +7,7 @@ export const NavBar = (props) => {
     localStorage.removeItem("startswithq_user")
 }
   return (
+    <div className="container">
     <ul className="navbar">
       <li className="navbar__item active">
         <Link className="navbar__link" to="/">
@@ -32,7 +33,6 @@ export const NavBar = (props) => {
         <Link className="navbar__link" to="/">
           Logout
         </Link>
-
         
         {/* document.addEventListener(
     "click",
@@ -49,5 +49,6 @@ export const NavBar = (props) => {
 ) */}
       </li>
     </ul>
+    </div>
   );
 };
