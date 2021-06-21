@@ -36,10 +36,10 @@ address {
 logo {
     background-position-x: right;
     background-image: url("./auth/Qlogo.png");
-    /* background-size: 250px 250 px; */
+    background-size: 12%;
     z-index: -1;
-    min-height: 25rem;
-    min-width: 45rem;
+    min-height: 10rem;
+    min-width: 12rem;
     background-color: hsla(0,0%,100%,0.40);
     background-blend-mode: overlay;
     background-repeat: no-repeat;

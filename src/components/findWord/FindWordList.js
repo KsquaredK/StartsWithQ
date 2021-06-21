@@ -8,19 +8,6 @@ import { useContext, useEffect } from "react";
 import { FindWordContext } from './FindWordProvider';
 import "./FindWord.css"
 
-// 
-// pull data from db, instead of using below arrays?
-// const letterOptions = [
-//   { value: 'q', label: 'Q' },
-//   { value: 'x', label: 'X' },
-//   { value: 'Z', label: 'Z' }
-// ]
-
-// const positionOptions = [
-//   { value: 'start', label: 'starts with' },
-//   { value: 'occur', label: 'has a' }
-// ]
-
 
 export const FindWordList = ()  => {
     const { foundWords, getFoundWord } = useContext(FindWordContext);
@@ -33,12 +20,9 @@ export const FindWordList = ()  => {
     )
     return (
         <>
-    <h2>Starts With Q</h2>
-    <strong>your wordgame superpower</strong>
-        <div>Find tricky words that use Q, X or Z</div>
         <h2>Here are your words:</h2> 
         <div>
-          <img className="logo"/>
+          <img className="logo" alt="Starts With Q logo"/>
         </div>
     
     </>
@@ -67,3 +51,16 @@ let filteredQWords = foundWords.filter(foundWord => {
 });
 
 console.log(filteredQWords); */
+
+// 
+// pull data from db, instead of using below arrays?
+// const letterOptions = [
+//   { value: 'q', label: 'Q' },
+//   { value: 'x', label: 'X' },
+//   { value: 'Z', label: 'Z' }
+// ]
+
+// const positionOptions = [
+//   { value: 'start', label: 'starts with' },
+//   { value: 'occur', label: 'has a' }
+// ]

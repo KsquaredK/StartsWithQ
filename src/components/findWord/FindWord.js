@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { FindWordContext } from "./FindWordProvider"; 
 import { UserContext } from "../user/UserProvider"
-import { useHistory, useParams } from "react-router-dom";
-// import { Dropdown } from "react-dropdown";
+import { useHistory} from "react-router-dom";
 import "./FindWord.css";
 
 
@@ -20,31 +19,27 @@ export const FindWord = () => {
   userId: parseInt(localStorage.getItem("startswithq_user")),
   timestamp: ""
 });
+return (
+  <>
+    <h2>your wordgame superpower</h2>
+        <div className="subHeader">Find tricky words that use Q, X or Z</div>
+      <div className="findWordSearch">
+          Start here:
+      </div>
+  </>
+)
 }
 
 
 
 /* +++++++ PSEUDO-CODE ++++++++  
-This view is the "main view", an export function for search, with user
-input via two dropdown menus: [q, x, or z] and ["starts with" or
-has a"]. Module draws on datasets from words and users contexts to create 
-newWordsObjects with the userId and searchLetterId (foreign keys).
-
-
-
-
-
-
-Create a function to handle controlled input, where the event (click)
-defines fetch request queries by letter, and by whether each word starts with that 
-letter or the letter occurs elsewhere in the word. Invoke the tailored requests
-via the FindWordProvider, save them to state, and
-redirect to FindWordList. 
-
+This view is the "main view", and holds the static content.
 */
 
 
   /* TRY AFTER MVP: React-Dropdown 
+
+  // import { Dropdown } from "react-dropdown";
   
   const defaultOption = options[0],
   <Dropdown options={options} onChange={this._onSelect} value={defaultOption} placeholder="Select an option" />;
