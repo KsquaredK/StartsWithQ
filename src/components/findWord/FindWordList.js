@@ -1,20 +1,21 @@
 import React from "react"
 import { Route, Redirect } from "react-router-dom";
-
 import { useContext, useEffect } from "react";
 import { FindWordContext } from './FindWordProvider';
+// import { UserContext } from "./user/UserProvider"
 import "./FindWord.css"
 
+// const currentUser = parseInt(localStorage.getItem("startswithq_user"));
 
 export const FindWordList = ()  => {
     const { foundWords, getFoundWord } = useContext(FindWordContext);
 
-    useEffect(
-        // eslint-disable-next-line
-        () => { getFoundWord() },
-        [],
-        console.log(foundWords)
-    )
+    // useEffect(
+    //     // eslint-disable-next-line
+    //     () => { getFoundWord() },
+    //     [],
+    //     console.log(foundWords)
+    
     return (
         <>
         <h2>Here are your words:</h2> 

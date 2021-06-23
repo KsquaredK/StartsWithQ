@@ -48,10 +48,10 @@ export const ApplicationViews = () => {
               <Route path="/words/list">
                 <FindWordList />
               </Route>
-              {/* <Route path="/qWords">
-                <QWordList />
+             {/* <Route path="/WordList">
+                <WordList />
               </Route>
-              <Route path="/qWords/detail/:qWordId(\d+)">
+              </UserProvider><Route path="/qWords/detail/:qWordId(\d+)">
                 <QWordDetail />
               </Route>
               <Route path="/xWords">
