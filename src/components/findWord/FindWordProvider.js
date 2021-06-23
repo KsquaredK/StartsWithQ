@@ -9,30 +9,36 @@ export const FindWordContext = createContext();
 // words is an empty array, setWords is a function that modifies it.
 // useState will hold and set the array of words.
 export const FindWordProvider = (props) => {
-    const [foundWords, setFoundWords] = useState([]);
+    const [words, setWords] = useState([]);
     const [searchLetters, setSearchLetters] = useState ([]);
 
-  const getFoundWords = () => {
+  const getWords = (letter) => {
     // words: fetch that dataset. ex: return 6-letter words that start with q
-   fetch("https://api.datamuse.com/words?sp=q*")
-      .then(res => res.json())
-      .then(setFoundWords) 
-      console.log(setFoundWords)
-  }
+  return fetch(`https://api.datamuse.com/words?sp=${letter}*`)
+  .then(res => res.json())
+  .then(setWords) 
+}
+console.log(words)
+
+// return fetch(`https://api.datamuse.com/words?sp=*${letter.replace(/"/g,"")}`)
+//  return fetch(`https://api.datamuse.com/words?sp=??${letter.replace(/"/g,"")}?????`)
 
   const getSearchLetters = () => {
-    fetch("http://localhost:8088/searchLetters")
+    return fetch("http://localhost:8088/searchLetters")
     .then(res => res.json())
       .then(setSearchLetters)  
   }
+  console.log(searchLetters)
 
     return (
         <FindWordContext.Provider
         value={{
-            foundWords,
-            getFoundWords,
+            words,
+            getWords,
+            setWords,
             searchLetters,
             getSearchLetters,
+            setSearchLetters,
             // addWords,
             // deleteWord,
             // updateWord,
