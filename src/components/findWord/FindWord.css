@@ -69,18 +69,45 @@ img {
 }
 
 .form-group{
-    max-width: 20%;
+    max-width: 25%;
     margin-left: auto;
     margin-right: auto;
   }
 
 .form-control {
-  max-width: 5%;
+  max-width: 10%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .btn {
+  text-align: center;
+}
+
+.word-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.word {
+    flex-basis: 35%;
+    margin: 1em;
+    padding: 1em;
+    border: 1px solid goldenrod;
+}
+
+.word-detail {
+  display: flex;
+  flex-direction: column;
+  margin: 4em auto;
+  padding: 0 2em 2em;
+  border: 1px solid goldenrod;
+  text-align: center;
+  width: 45%;
+}
+
+.word-btn {
   text-align: center;
 }
 

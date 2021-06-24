@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { FindWordContext } from "./FindWordProvider";
 import "./FindWord.css";
 
-// de-comment useHistory when FindWordList is running
+
 
 export const FindWordSearch = () => {
     const {searchLetters, getSearchLetters, getWords} = useContext(FindWordContext);
@@ -20,7 +20,7 @@ export const FindWordSearch = () => {
       // const [isLoading, setIsLoading] = useState(true); //??
 
       // useHistory will redirect view by supplying a new path when invoked
-      // const history = useHistory();
+      const history = useHistory();
 
       //the controlled input is a user clicking an option in the dropdown
       // here the event.target.value gets set to state as chosenLetter variable
@@ -40,7 +40,7 @@ export const FindWordSearch = () => {
           if (chosenLetter) {
       //       //GET list of words and redirect rendered view to FindWordList
           getWords(chosenLetter)
-          // .then(() => history.push(`/words/list`));
+          .then(() => history.push(`/words/list`));
           } 
         };
       }

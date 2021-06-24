@@ -17,14 +17,13 @@ export const FindWordProvider = (props) => {
       .then(res => res.json())
       .then(setSearchLetters)  
     }
-    console.log(searchLetters)
   
     const getWords = (letter) => {
       return fetch(`https://api.datamuse.com/words?sp=${letter}*&max=400`)
       .then(res => res.json())
       .then(setWords) 
   }
-  console.log(words)
+
   
   // return fetch(`https://api.datamuse.com/words?sp=*${letter.replace(/"/g,"")}`)
   //  return fetch(`https://api.datamuse.com/words?sp=??${letter.replace(/"/g,"")}?????`)
@@ -42,9 +41,6 @@ export const FindWordProvider = (props) => {
             // deleteWord,
             // updateWord,
             // getWordById,
-        //     searchTerms,
-        //     setSearchTerms,
-        // 
       }}>
         {props.children}
         </FindWordContext.Provider>

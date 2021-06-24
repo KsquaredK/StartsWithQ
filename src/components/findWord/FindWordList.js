@@ -1,64 +1,39 @@
 import React from "react"
-import { Route, Redirect } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { FindWordContext } from './FindWordProvider';
-// import { UserContext } from "./user/UserProvider"
 import "./FindWord.css"
+// import { UserContext } from "./user/UserProvider"
+// import { Link } from "react-router-dom";
 
 // const currentUser = parseInt(localStorage.getItem("startswithq_user"));
 
 export const FindWordList = ()  => {
-    const { foundWords, getFoundWord } = useContext(FindWordContext);
+    const { words, getWords } = useContext(FindWordContext);
+    // const history = useHistory()
 
-    // useEffect(
-    //     // eslint-disable-next-line
-    //     () => { getFoundWord() },
-    //     [],
-    //     console.log(foundWords)
+    useEffect( () => { 
+      getWords() 
+      // eslint-disable-next-line
+      }, [], )
+        console.log(words);
     
     return (
         <>
         <h2>Here are your words:</h2> 
-        <div>
-          <img className="logo" alt="Starts With Q logo"/>
-        </div>
-    
+        <section className="word-list">
+        {words.map(word => {
+        return (
+              <article className="word" key={words.word}
+              value={words.word}>
+              <div className="word__detail">
+              { words.word }
+              </div>
+              </article>
+          )
+         } )
+      }
+      </section>
     </>
-  );
-    }
-
-//     <div className="foundWords">
-//     {
-//         foundWords.map(word => {
-//             return <FindWordDetail wordObject={word} key={word.id} />
-//         })
-//     }
-// </div>
-
-/* Working with data: 
-wordList.push(<li>${res[i].word}</li>);
-(.word is a property, res is a json response array 
-filled with objects, to which word is one of the properties. 
-So here we’re accessing the object item in the array through 
-its index (res[i]), and accessing its word property with .word.) */
-
-/*
-// Filter all words that start with "q" into a new list
-let filteredQWords = foundWords.filter(foundWord => {
-  return foundWord[0] === "q";
-});
-
-console.log(filteredQWords); */
-
-// 
-// pull data from db, instead of using below arrays?
-// const letterOptions = [
-//   { value: 'q', label: 'Q' },
-//   { value: 'x', label: 'X' },
-//   { value: 'Z', label: 'Z' }
-// ]
-
-// const positionOptions = [
-//   { value: 'start', label: 'starts with' },
-//   { value: 'occur', label: 'has a' }
-// ]
+              );
+   }  
+  
