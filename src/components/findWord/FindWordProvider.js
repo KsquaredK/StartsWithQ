@@ -12,23 +12,22 @@ export const FindWordProvider = (props) => {
     const [words, setWords] = useState([]);
     const [searchLetters, setSearchLetters] = useState ([]);
 
-  const getWords = (letter) => {
-    // words: fetch that dataset. ex: return 6-letter words that start with q
-  return fetch(`https://api.datamuse.com/words?sp=${letter}*`)
-  .then(res => res.json())
-  .then(setWords) 
-}
-console.log(words)
-
-// return fetch(`https://api.datamuse.com/words?sp=*${letter.replace(/"/g,"")}`)
-//  return fetch(`https://api.datamuse.com/words?sp=??${letter.replace(/"/g,"")}?????`)
-
-  const getSearchLetters = () => {
-    return fetch("http://localhost:8088/searchLetters")
-    .then(res => res.json())
+    const getSearchLetters = () => {
+      return fetch("http://localhost:8088/searchLetters")
+      .then(res => res.json())
       .then(setSearchLetters)  
+    }
+    console.log(searchLetters)
+  
+    const getWords = (letter) => {
+      return fetch(`https://api.datamuse.com/words?sp=${letter}*&max=400`)
+      .then(res => res.json())
+      .then(setWords) 
   }
-  console.log(searchLetters)
+  console.log(words)
+  
+  // return fetch(`https://api.datamuse.com/words?sp=*${letter.replace(/"/g,"")}`)
+  //  return fetch(`https://api.datamuse.com/words?sp=??${letter.replace(/"/g,"")}?????`)
 
     return (
         <FindWordContext.Provider
@@ -55,21 +54,15 @@ console.log(words)
 
 //MORE FETCH REQUESTS as I add functionality
 
-//  ??? is there an application for this in my search capabilities?   
-  //  const getSearchResultById = (searchResultId) => {
-  //   return fetch(`https://api.datamuse.com/words?/${wordId}`).then((res) =>
-  //     res.json()
-  //   );
-  // };
-
-  // const updateSearchResult = (searchResult) => {
-  //   return fetch(`http://localhost:8088/words/${word.id}`, {
+// user saves from FindWordList, to be put in local API words dataset
+  // const updateUserWords = userWords => {
+  //   return fetch(`http://localhost:8088/words/${word.id}`, { ?? what URL?
   //     method: "PUT",
   //     headers: {
   //       "Content-Type": "application/json",
   //     },
-  //     body: JSON.stringify(word),
-  //   }).then(getSearchResult);
+  //     body: JSON.stringify(userWords),
+  //   }).then(getUserWords);
   // };
 
   // const addWords = (searchResultObj) => {
@@ -86,3 +79,11 @@ console.log(words)
   //   return fetch(`http://localhost:8088/words?_embed=userWords/${wordId}`, {
   //     method: "DELETE",
   //   }).then(getWords;
+
+
+//  ??? is there an application for this in my search capabilities?   
+  //  const getSearchResultById = (searchResultId) => {
+  //   return fetch(`https://api.datamuse.com/words?/${wordId}`).then((res) =>
+  //     res.json()
+  //   );
+  // };
