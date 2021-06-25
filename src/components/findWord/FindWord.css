@@ -9,6 +9,7 @@ Yellow Green Crayola: CDDE9D,
 Pale Spring Bud: E6E7BB,
 Chinese Red: a3311d
 Dirty Light Yellow: fafce7
+Black Chocolate: 161608
 ________________________________*/
 
 body,
@@ -36,7 +37,7 @@ p {
 }
 
 article {
-  background-color: E6E7BB;
+  background-color: #EAEBC5;
 }
 
 strong {
@@ -84,9 +85,9 @@ img {
   text-align: center;
 }
 
-.word-list {
+section {
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   justify-content: space-between;
 }
 
@@ -94,21 +95,21 @@ img {
     flex-basis: 35%;
     margin: 1em;
     padding: 1em;
-    border: 1px solid goldenrod;
+    border: .25px solid goldenrod;
 }
 
 .word-detail {
   display: flex;
-  flex-direction: column;
   margin: 4em auto;
   padding: 0 2em 2em;
-  border: 1px solid goldenrod;
+  border: .25px solid goldenrod;
   text-align: center;
-  width: 45%;
+  max-width: 28%;
 }
 
 .word-btn {
   text-align: center;
+  color: #C3B2CB;
 }
 
 /* dropdown {

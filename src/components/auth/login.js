@@ -37,14 +37,14 @@ export const Login = props => {
 
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Starts With Q</h1>
                     <h2>Please sign in</h2>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
                         <input ref={email} type="email"
                             id="email"
+                            size="22"
                             className="form-control"
-                            placeholder="Email address"
+                            // placeholder="Email address"
                             required autoFocus />
                     </fieldset>
                     <fieldset>
@@ -53,9 +53,10 @@ export const Login = props => {
                         </button>
                     </fieldset>
                 </form>
+                
             </section>
-            <section className="link--register">
-                <Link to="/register">Not a member yet?</Link>
+            <section className="register" >
+             <div><Link to="/register">Not a member yet?</Link></div>   
             </section>
         </main>
     )

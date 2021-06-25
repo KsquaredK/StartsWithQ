@@ -56,7 +56,7 @@ const handleRegister = (e) => {
             </dialog>
 
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for Starts With Q</h1>
+                <h4 className="h3 mb-3 font-weight-normal">Sign Up for Starts With Q</h4>
                 <fieldset>
                     <label htmlFor="firstName"> First Name </label>
                     <input ref={firstName} type="text" name="firstName" className="form-control" placeholder="First name" required autoFocus />
