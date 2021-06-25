@@ -13,24 +13,31 @@ export const FindWordProvider = (props) => {
     const [userWord, setUserWords] = useState([]);
     const [searchLetters, setSearchLetters] = useState ([]);
     const [chosenLetter, getChosenLetter] = useState ([]);
+    // const [wordsLastLetter, getWordsLastLetter] = useState([]);
 
+    // return array of values used as search terms from permanent state
     const getSearchLetters = () => {
       return fetch("http://localhost:8088/searchLetters")
       .then(res => res.json())
       .then(setSearchLetters)  
     }
-  
+  // return array of objects (words filtered by search terms) from 3rd party api
     const getWords = (letter) => {
       return fetch(`https://api.datamuse.com/words?sp=${letter}*&max=400`)
       .then(res => res.json())
       .then(setWords) 
   }
 
+//   const getWordsLastLetter = (letter) => {
+//     return fetch(`https://api.datamuse.com/words?sp=*${letter}&max=400`)
+//     .then(res => res.json())
+//     .then(setWordsLastLetter) 
+// }
   
   // return fetch(`https://api.datamuse.com/words?sp=*${letter.replace(/"/g,"")}`)
   //  return fetch(`https://api.datamuse.com/words?sp=??${letter.replace(/"/g,"")}?????`)
 
-  
+  // post data object selected by user input to permanent state, return updated array of user selections
   const addUserWord = (userWord) => {
     return fetch("http://localhost:8088/words", {
       method: "POST",
@@ -41,7 +48,7 @@ export const FindWordProvider = (props) => {
     })
       .then(() => getUserWords())}
 
-
+//  get data saved by user id in permanent state, store as current state
     const getUserWords =() => {
       return fetch("http://localhost:8088/words")
         .then(res => res.json())
@@ -62,7 +69,9 @@ export const FindWordProvider = (props) => {
             userWord,
             setUserWords,
             chosenLetter,
-            getChosenLetter
+            getChosenLetter,
+            // getWordsLastLetter,
+            // wordsLastLetter
             // deleteWord,
             // updateWord,
             // getWordById,

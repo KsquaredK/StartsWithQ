@@ -14,21 +14,7 @@ export const NavBar = (props) => {
           New Search
         </Link>
       </li>
-      <li className="navbar__item">
-        <Link className="navbar__link" to="qWords">
-          Words With Q
-        </Link>
-      </li>
-      <li className="navbar__item">
-        <Link className="navbar__link" to="/xWords">
-          Words With X
-        </Link>
-      </li>
-      <li className="navbar__item">
-        <Link className="navbar__link" to="/zWords">
-          Words With Z
-        </Link>
-      </li>
+      
       <li onClick={Logout} className="navbar__item">
         <Link className="navbar__link" to="/">
           Logout
@@ -52,3 +38,20 @@ export const NavBar = (props) => {
     </div>
   );
 };
+
+/*-------restore full navigation -------------*
+<li className="navbar__item">
+        <Link className="navbar__link" to="qWords">
+          Words With Q
+        </Link>
+      </li>
+      <li className="navbar__item">
+        <Link className="navbar__link" to="/xWords">
+          Words With X
+        </Link>
+      </li>
+      <li className="navbar__item">
+        <Link className="navbar__link" to="/zWords">
+          Words With Z
+        </Link>
+      </li>   -----------------------*/
