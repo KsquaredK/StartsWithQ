@@ -6,6 +6,7 @@
  import { FindWord } from "./FindWord/FindWord";
  import { UserProvider } from "./user/UserProvider"; 
  import { FindWordSearch } from "./FindWord/FindWordSearch";
+ import logo from "./auth/Qlogo.png";
   /* import { FindWordDetail } from "./findWord/FindWordDetail";
  import { QProvider } from "./qWord/QWordProvider";
  import { QList } from "./qWord/QWordList";
@@ -14,7 +15,6 @@
  import { ZProvider } from "./ZWord/ZWordProvider";
  import { ZList } from "./zWord/ZWordList";
  import { ZDetail } from "./zWord/ZWordDetail"; */
- import logo from "./auth/Qlogo.png";
 
  /* +++++++ PSEUDO-CODE ++++++++  
  create these routes: "Starts With Q" view (FindWord.js) ui main page,
@@ -29,6 +29,11 @@
 export const ApplicationViews = () => {
   return (
     <>
+    <Route exact path="/">
+                <div className="header">
+                    <img src={logo} alt="Starts With Q logo" />
+                </div>
+            </Route>
       <FindWordProvider>
         <UserProvider>
        {/* <QWordProvider>
