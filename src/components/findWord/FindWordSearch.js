@@ -43,8 +43,8 @@ export const FindWordSearch = () => {
           .then(() => history.push(`/words/list`));
           } 
         };
+        return chosenLetter;
       }
-      console.log()
       // };
 
 
@@ -75,8 +75,7 @@ export const FindWordSearch = () => {
             </div>
         </fieldset>  
             <button
-                className="btn" 
-                // disabled={isLoading}
+                className="btn"
                 onClick={(event) => {
                 //Prevents the browser from submitting the form
                 event.preventDefault();

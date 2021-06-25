@@ -10,7 +10,9 @@ export const FindWordContext = createContext();
 // useState will hold and set the array of words.
 export const FindWordProvider = (props) => {
     const [words, setWords] = useState([]);
+    const [userWord, setUserWords] = useState([]);
     const [searchLetters, setSearchLetters] = useState ([]);
+    const [chosenLetter, getChosenLetter] = useState ([]);
 
     const getSearchLetters = () => {
       return fetch("http://localhost:8088/searchLetters")
@@ -28,6 +30,24 @@ export const FindWordProvider = (props) => {
   // return fetch(`https://api.datamuse.com/words?sp=*${letter.replace(/"/g,"")}`)
   //  return fetch(`https://api.datamuse.com/words?sp=??${letter.replace(/"/g,"")}?????`)
 
+  
+  const addUserWord = (userWord) => {
+    return fetch("http://localhost:8088/words", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userWord),
+    })
+      .then(() => getUserWords())}
+
+
+    const getUserWords =() => {
+      return fetch("http://localhost:8088/words")
+        .then(res => res.json())
+        .then(setUserWords) 
+    }
+
     return (
         <FindWordContext.Provider
         value={{
@@ -37,7 +57,12 @@ export const FindWordProvider = (props) => {
             searchLetters,
             getSearchLetters,
             setSearchLetters,
-            // addWords,
+            addUserWord,
+            getUserWords,
+            userWord,
+            setUserWords,
+            chosenLetter,
+            getChosenLetter
             // deleteWord,
             // updateWord,
             // getWordById,
@@ -60,26 +85,8 @@ export const FindWordProvider = (props) => {
   //     body: JSON.stringify(userWords),
   //   }).then(getUserWords);
   // };
-
-  // const addWords = (searchResultObj) => {
-  //   return fetch("http://localhost:8088/words?_embed=userWords", { ???
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(wordObj),
-  //   }).then(getWords);
-  // };
-
-  // const deleteWord = (wordId) => {
+ 
+  /* const deleteWord = (wordId) => {
   //   return fetch(`http://localhost:8088/words?_embed=userWords/${wordId}`, {
   //     method: "DELETE",
-  //   }).then(getWords;
-
-
-//  ??? is there an application for this in my search capabilities?   
-  //  const getSearchResultById = (searchResultId) => {
-  //   return fetch(`https://api.datamuse.com/words?/${wordId}`).then((res) =>
-  //     res.json()
-  //   );
-  // };
+  //   }).then(getWords; */

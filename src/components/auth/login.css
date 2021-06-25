@@ -11,25 +11,24 @@ fieldset {
 
 .form--login {
     display: inline-block;
-    margin: 0 auto;
-    text-align: left;
+    margin: 6rem auto;
+    text-align: center;
 }
 
-.form--login > fieldset > input[type="email"],
-.form--login > fieldset > input[type="password"] {
-    width: 25em;
+.form--login > fieldset > input[type="email"] {
+    /* width: 30%; */
 }
 
 .label--login {
-    width: 8rem;
+    width: 15rem;
     display: inline-block;
 }
 
 .form-control {
     display: block;
-    width: 94%;
+    /* width: 25rem; */
     height: calc(1.5em + .75rem + 2px);
-    padding: .375rem .75rem;
+    padding: .5rem 2rem;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -43,7 +42,10 @@ fieldset {
 }
 
 .container--login {
-    text-align: center;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    /* text-align: center; */
 }
 
 .form--login {
@@ -66,4 +68,11 @@ fieldset {
 .dialog {
     min-width: 15rem;
     min-height: 5rem;
+}
+.register {
+    text-align: center;
+}
+
+a {
+    text-align: center;
 }

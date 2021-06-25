@@ -29,11 +29,6 @@
 export const ApplicationViews = () => {
   return (
     <>
-    <Route exact path="/">
-        <div className="logo">
-          <img src={logo} alt="Starts With Q logo" />
-        </div>
-      </Route>
       <FindWordProvider>
         <UserProvider>
        {/* <QWordProvider>
