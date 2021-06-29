@@ -4,32 +4,28 @@ import { FindWordContext } from './FindWordProvider';
 import "./FindWord.css"
 
 /*------TODO-first----------*/
-// logic to add selected word to handleSaveUserWord, and make searchLetterId dynamic
+// logic to add searchLetterId id to newUserWordChoice
 
 const currentUser = parseInt(localStorage.getItem("startswithq_user"));
 
 export const FindWordList = ()  => {
-    const {words, addUserWord, } = useContext(FindWordContext);
+    const {words, addUserWord, chosenLetter } = useContext(FindWordContext);
     // const history = useHistory()
 
   const [userWordChoice, setUserWordChoice] = useState({})
+ 
 
-  //  *--------
- //the controlled input is a user clicking an option in the dropdown
-      // here the event.target.value gets set to state as chosenLetter variable
-      const handleControlledInputChange = (event) => {
-        setUserWordChoice(event.target.value);
-      };
    
   //  *--------- user input to save one or more words in list to local db ---*
-    const handleSaveUserWord = (event, index) => {
+    const handleSaveUserWord = (word) => {
         if (userWordChoice) {
         const newUserWordChoice = {
-            word: words,
-            searchLetterId: 2,
+            word: word.word,
+            searchLetterId: 2, //placeholder
             userID: currentUser,
             timestamp: Date.now(),
         }
+        console.log(chosenLetter);
         setUserWordChoice(currentUser);
   // PUT word to db and change rendering of chosen word (CSS -animate button going away?, 
           // delete from component state array?)
@@ -42,28 +38,26 @@ export const FindWordList = ()  => {
   /*----- In this case, 3rd party API had no unique id property ---*/
   return (
     <>
-        <h2>Here are your words</h2> 
-        <section className="word-list">
-          {words.map((word) => {
-            return (
-              <article className="word" 
-              key={index}
-              value={word.word}>
-              <div className="word__detail">
-              { word.word }
-              </div>
-              <button
-        className="word-btn" 
-        onClick={(event, index) => {
-          event.preventDefault();
-          handleControlledInputChange(event);
-          handleSaveUserWord(
-          event.target.value);}}>save</button>
-              </article>
-          )})
-        }; ;    
-        </section>
-        </>
+    <h2>Here are your words</h2> 
+    <section className="word-list">
+      {words.map((word, index) => {
+        return (
+          <article className="word" 
+          key={index}
+          value={word.word}>
+          <div className="word__detail">
+          { word.word }
+          </div>
+          <button
+    className="word-btn" 
+    onClick={(event, index) => {
+      event.preventDefault();
+      handleSaveUserWord(word);}}>save</button>
+          </article>
+      )})
+    }; ;    
+    </section>
+    </>
   )}
+
   
-      

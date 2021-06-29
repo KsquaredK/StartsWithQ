@@ -40,7 +40,7 @@ export const FindWordSearch = () => {
           if (chosenLetter) {
       //       //GET list of words and redirect rendered view to FindWordList
           getWords(chosenLetter)
-          .then(() => history.push(`/words/list`));
+          .then(() => history.push(`/words/list`)); //${chosenLetter}
           } 
         };
         return chosenLetter;
