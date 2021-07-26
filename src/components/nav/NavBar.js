@@ -19,21 +19,11 @@ export const NavBar = (props) => {
         <Link className="navbar__link" to="/">
           Logout
         </Link>
+        </li>
         
-        {/* document.addEventListener(
-    "click",
-    (clickEvent) => {
-        if (clickEvent.target.id === "logout") {
-            let user = parseInt(localStorage.getItem("gg_user"))
-            if (user >= 0) {
-                localStorage.clear();
-                document.querySelector(".giffygram").dispatchEvent(new CustomEvent("stateChanged"))
-            }
-        }
-
-    }
-) */}
-      </li>
+{/*    <li Link className="navbar__link" to "/library">
+        ${chosenLetter} Library</Link>
+        </li> */}
     </ul>
     </div>
   );

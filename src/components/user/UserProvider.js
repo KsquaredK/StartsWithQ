@@ -1,5 +1,8 @@
 import React, { useState, createContext } from "react";
 
+/* ========= PSEUDOCODE FOR COMPONENT ========= 
+ • UserProvider handles state for app users, including getting and setting
+    user state, adding, and (stretch) deleting users.*/
 
 // The context is imported and used by individual components that need data.
 // Nothing is stored in createContext when it is defined.
