@@ -69,12 +69,7 @@ export const FindWordProvider = (props) => {
             userWord,
             setUserWords,
             chosenLetter,
-            getChosenLetter,
-            // getWordsLastLetter,
-            // wordsLastLetter
-            // deleteWord,
-            // updateWord,
-            // getWordById,
+            getChosenLetter
       }}>
         {props.children}
         </FindWordContext.Provider>
