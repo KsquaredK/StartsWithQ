@@ -1,8 +1,26 @@
 import React, { useState, createContext } from "react";
 
+/* ========= PSEUDOCODE FOR COMPONENT =========
+• FW Search: fetch search letters, map them to a dropdown menu, save user's selection (a variable
+  capturing a string of the letter name) to state, redirect to search results view
 
-// The context is imported and used by individual components that need data.
-// Nothing is stored in createContext when it is defined.
+    -Stretch: optional second dropdown that lets you choose search letter's position in word
+
+• FW List: render search results view by mappping though words in FindWordContext. When user
+  clicks save by a listed word, use find method to find searchLetter object whose name matches
+  chosenLetter in state.  Clear mutable state (unsaved search results) upon navigating to new component, with a save button
+  that saves an object with the word, word id, user id, search letter id and timestamp
+  to the db
+
+  - Stretch: Clear results button that redirects to search view, and clears mutable state
+
+• FW Provider:
+    searchLetters, getSearchLetters, setSearchLetters,
+    chosenLetter, setChosenLetter,
+    words, getWords, setWords,
+    userWord, setUserWords, addUserWords, getUserWords, deleteUserWord
+/ ============================================= */
+
 export const FindWordContext = createContext();
 
 // This component establishes what data can be used.
@@ -11,29 +29,22 @@ export const FindWordContext = createContext();
 export const FindWordProvider = (props) => {
     const [words, setWords] = useState([]);
     const [userWord, setUserWords] = useState([]);
-    const [searchLetters, setSearchLetters] = useState ([]);
-    const [chosenLetter, getChosenLetter] = useState ([]);
-    // const [wordsLastLetter, getWordsLastLetter] = useState([]);
+    const [searchLetters, setSearchLetters] = useState([]);
+    const [chosenLetter, setChosenLetter] = useState("");
 
     // return array of values used as search terms from permanent state
     const getSearchLetters = () => {
       return fetch("http://localhost:8088/searchLetters")
       .then(res => res.json())
-      .then(setSearchLetters)  
+      .then(setSearchLetters)
     }
   // return array of objects (words filtered by search terms) from 3rd party api
     const getWords = (letter) => {
       return fetch(`https://api.datamuse.com/words?sp=${letter}*&max=400`)
       .then(res => res.json())
-      .then(setWords) 
+      .then(setWords)
   }
 
-//   const getWordsLastLetter = (letter) => {
-//     return fetch(`https://api.datamuse.com/words?sp=*${letter}&max=400`)
-//     .then(res => res.json())
-//     .then(setWordsLastLetter) 
-// }
-  
   // return fetch(`https://api.datamuse.com/words?sp=*${letter.replace(/"/g,"")}`)
   //  return fetch(`https://api.datamuse.com/words?sp=??${letter.replace(/"/g,"")}?????`)
 
@@ -52,7 +63,7 @@ export const FindWordProvider = (props) => {
     const getUserWords =() => {
       return fetch("http://localhost:8088/words")
         .then(res => res.json())
-        .then(setUserWords) 
+        .then(setUserWords)
     }
 
     return (
@@ -69,28 +80,12 @@ export const FindWordProvider = (props) => {
             userWord,
             setUserWords,
             chosenLetter,
-            getChosenLetter
+            setChosenLetter
+            // deleteUserWord,
       }}>
         {props.children}
         </FindWordContext.Provider>
   );
     }
 
-
-//MORE FETCH REQUESTS as I add functionality
-
-// user saves from FindWordList, to be put in local API words dataset
-  // const updateUserWords = userWords => {
-  //   return fetch(`http://localhost:8088/words/${word.id}`, { ?? what URL?
-  //     method: "PUT",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(userWords),
-  //   }).then(getUserWords);
-  // };
- 
-  /* const deleteWord = (wordId) => {
-  //   return fetch(`http://localhost:8088/words?_embed=userWords/${wordId}`, {
-  //     method: "DELETE",
-  //   }).then(getWords; */
+    // https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=26038152-9e3f-4e5b-904e-051cb50e1ae6

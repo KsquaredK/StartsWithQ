@@ -4,24 +4,16 @@
  import { FindWordProvider } from "./FindWord/FindWordProvider";
  import { FindWordList } from "./FindWord/FindWordList";
  import { FindWord } from "./FindWord/FindWord";
- import { UserProvider } from "./user/UserProvider"; 
  import { FindWordSearch } from "./FindWord/FindWordSearch";
+//  import { LibraryProvider } from "./Library/LibraryProvider";
+ import { UserProvider } from "./user/UserProvider"; 
  import logo from "./auth/Qlogo.png";
-  /* import { FindWordDetail } from "./findWord/FindWordDetail";
- import { QProvider } from "./qWord/QWordProvider";
- import { QList } from "./qWord/QWordList";
- import { XProvider } from "./xWord/XWordProvider";
- import { XList } from "./xWord/XWordList";
- import { ZProvider } from "./ZWord/ZWordProvider";
- import { ZList } from "./zWord/ZWordList";
- import { ZDetail } from "./zWord/ZWordDetail"; */
 
  /* +++++++ PSEUDO-CODE ++++++++  
  create these routes: "Starts With Q" view (FindWord.js) ui main page,
  FindWordForm (StartsWithQ search form),
  FindWordList (Starts WithQ search results and save feature)
- QWordList (Q word library)
- QWordDetail (delete Q words)
+ {chosenLetter}Library (user's word library by letter)
 */
 
 
@@ -36,9 +28,7 @@ export const ApplicationViews = () => {
             </Route>
       <FindWordProvider>
         <UserProvider>
-       {/* <QWordProvider>
-          <XWordProvider>
-            <ZWordProvider>  */}
+          {/* <LibraryProvider> */}
               <Route exact path="/">
                 <FindWord />
               </Route>
@@ -48,27 +38,10 @@ export const ApplicationViews = () => {
               <Route path="/words/list">
                 <FindWordList />
               </Route>
-              {/* <Route path="/WordList">
-                <WordList />
+              {/* <Route path="/${chosenLetter}library">
+                <Library />
               </Route> */}
-              {/*<Route path="/qWords/detail/:qWordId(\d+)">
-                <QWordDetail />
-              </Route>
-              <Route path="/xWords">
-                <XWordList />
-              </Route>
-              <Route path="/xWords/detail/:xWordId(\d+)">
-                <XWordDetail />
-              </Route>
-              <Route path="/zWords">
-                <ZWordList />
-              </Route>
-              <Route path="/zWords/detail/:zWordId(\d+)">
-                <ZWordDetail /> 
-              </Route>
-            </XWordProvider>
-          </ZWordProvider>
-        </QWordProvider> */}
+          {/* </LibraryProvider> */}
         </UserProvider>
       </FindWordProvider>
     </>
