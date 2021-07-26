@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { FindWordContext } from "./FindWordProvider";
 import "./FindWord.css";
@@ -6,53 +6,48 @@ import "./FindWord.css";
 
 
 export const FindWordSearch = () => {
-    const {searchLetters, getSearchLetters, getWords} = useContext(FindWordContext);
+    const {searchLetters, getSearchLetters, getWords, chosenLetter, setChosenLetter} = useContext(FindWordContext);
     
     useEffect(() => {
         getSearchLetters();
         // eslint-disable-next-line
       }, []);
-/*
-    With React, our return (render) reacts to state or props.
-    Define the initial state of the form inputs with useState()
-    */
-      const [chosenLetter, setChosenLetter] = useState("");
+
+      // const searchLetterId = searchLetters.id
       // const [isLoading, setIsLoading] = useState(true); //??
 
-      // useHistory will redirect view by supplying a new path when invoked
       const history = useHistory();
 
       //the controlled input is a user clicking an option in the dropdown
       // here the event.target.value gets set to state as chosenLetter variable
+    // line 25 is capturing option properties
       const handleControlledInputChange = (event) => {
-        setChosenLetter(event.target.value);
+        const userSelection = event.target.value;
+        setChosenLetter(userSelection);
       };
 
       // this function runs when user hits submit button. if no dropdown option was chosen, show window alert
-      const handleSaveGetWords = (event) => {
+      const handleSearchWords = (event) => {
         if (
-          chosenLetter === "" ) {
+          chosenLetter === "") {
           window.alert("Please select a letter");
       // //else
         } else {
           // disable the button - no extra clicks
         // setIsLoading(true);
           if (chosenLetter) {
-      //       //GET list of words and redirect rendered view to FindWordList
+            //GET list of words and redirect rendered view to FindWordList
           getWords(chosenLetter)
           .then(() => history.push(`/words/list`)); //${chosenLetter}
-          } 
-        };
-        return chosenLetter;
-      }
-      // };
+          // } 
+        }
+        console.log(chosenLetter)
+      };
+    }
 
 
     return (
-      // JSX: select (dropdown): the value of the dropdown and each option is
-      // searchLetters.name. onChange, a searchLetter.name is selected. onClick, 
-      // handleClickGetWords is invoked, passing the searchLettersName argument (as event.target.value)
-      // to getWords, which sends a fetch GET with that argument interpolated in the URL.
+    
       <>
         <form className="findWordForm">
         <h2 className="findWordForm__title">Find tricky words that use Q, X or Z</h2>
@@ -60,10 +55,12 @@ export const FindWordSearch = () => {
             <div className="form-group">
                 <label htmlFor="searchLetter">First choose a letter</label>
                 <select
-                    name="searchLetterId"
+                    name="searchLetter"
                     id="searchLetterId"
                     className="form-control"
-                    value={searchLetters.name}
+                    value={searchLetters.id}
+                    key="searchLetterId"
+                    required
                     onChange={handleControlledInputChange}>
                     <option value="0"></option>
                     {searchLetters.map((s) => (
@@ -79,10 +76,9 @@ export const FindWordSearch = () => {
                 onClick={(event) => {
                 //Prevents the browser from submitting the form
                 event.preventDefault();
-                handleSaveGetWords(event.target.value)}}>
+                handleSearchWords()}}>
         Search</button>
     </form>
     </>
     );
-};
-
+ }

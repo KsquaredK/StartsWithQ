@@ -9,7 +9,7 @@ import "./FindWord.css"
 const currentUser = parseInt(localStorage.getItem("startswithq_user"));
 
 export const FindWordList = ()  => {
-    const {words, addUserWord, chosenLetter } = useContext(FindWordContext);
+    const {words, addUserWord, chosenLetter, searchLetters} = useContext(FindWordContext);
     // const history = useHistory()
 
   const [userWordChoice, setUserWordChoice] = useState({})
@@ -17,15 +17,23 @@ export const FindWordList = ()  => {
 
    
   //  *--------- user input to save one or more words in list to local db ---*
+  // If the word to be saved has a chosenLetter matching the name of
+  // one of the searchletters, create a new object with these properties,
+  // set it to state, and call addUserWord, passing the new obj in as an
+  // argument.
     const handleSaveUserWord = (word) => {
         if (userWordChoice) {
+        const matchingLetterObj = searchLetters.find(
+        (searchLetterObj) => {
+         return searchLetterObj.name === chosenLetter
+          }
+        )
         const newUserWordChoice = {
             word: word.word,
-            searchLetterId: 2, //placeholder
+            searchLetterId: matchingLetterObj.id, 
             userID: currentUser,
             timestamp: Date.now(),
         }
-        console.log(chosenLetter);
         setUserWordChoice(currentUser);
   // PUT word to db and change rendering of chosen word (CSS -animate button going away?, 
           // delete from component state array?)
@@ -59,5 +67,6 @@ export const FindWordList = ()  => {
     </section>
     </>
   )}
+
 
   
