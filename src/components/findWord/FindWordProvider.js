@@ -1,12 +1,12 @@
 import React, { useState, createContext } from "react";
 
-/* ========= PSEUDOCODE FOR COMPONENT ========= 
-• FW Search: fetch search letters, map them to a dropdown menu, save user's selection (a variable 
+/* ========= PSEUDOCODE FOR COMPONENT =========
+• FW Search: fetch search letters, map them to a dropdown menu, save user's selection (a variable
   capturing a string of the letter name) to state, redirect to search results view
 
     -Stretch: optional second dropdown that lets you choose search letter's position in word
 
-• FW List: render search results view by mappping though words in FindWordContext. When user 
+• FW List: render search results view by mappping though words in FindWordContext. When user
   clicks save by a listed word, use find method to find searchLetter object whose name matches
   chosenLetter in state.  Clear mutable state (unsaved search results) upon navigating to new component, with a save button
   that saves an object with the word, word id, user id, search letter id and timestamp
@@ -14,8 +14,8 @@ import React, { useState, createContext } from "react";
 
   - Stretch: Clear results button that redirects to search view, and clears mutable state
 
-• FW Provider: 
-    searchLetters, getSearchLetters, setSearchLetters, 
+• FW Provider:
+    searchLetters, getSearchLetters, setSearchLetters,
     chosenLetter, setChosenLetter,
     words, getWords, setWords,
     userWord, setUserWords, addUserWords, getUserWords, deleteUserWord
@@ -36,15 +36,15 @@ export const FindWordProvider = (props) => {
     const getSearchLetters = () => {
       return fetch("http://localhost:8088/searchLetters")
       .then(res => res.json())
-      .then(setSearchLetters)  
+      .then(setSearchLetters)
     }
   // return array of objects (words filtered by search terms) from 3rd party api
     const getWords = (letter) => {
       return fetch(`https://api.datamuse.com/words?sp=${letter}*&max=400`)
       .then(res => res.json())
-      .then(setWords) 
+      .then(setWords)
   }
-  
+
   // return fetch(`https://api.datamuse.com/words?sp=*${letter.replace(/"/g,"")}`)
   //  return fetch(`https://api.datamuse.com/words?sp=??${letter.replace(/"/g,"")}?????`)
 
@@ -63,7 +63,7 @@ export const FindWordProvider = (props) => {
     const getUserWords =() => {
       return fetch("http://localhost:8088/words")
         .then(res => res.json())
-        .then(setUserWords) 
+        .then(setUserWords)
     }
 
     return (
@@ -87,6 +87,5 @@ export const FindWordProvider = (props) => {
         </FindWordContext.Provider>
   );
     }
- 
-    // https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=26038152-9e3f-4e5b-904e-051cb50e1ae6
 
+    // https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=26038152-9e3f-4e5b-904e-051cb50e1ae6

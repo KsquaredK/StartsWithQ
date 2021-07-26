@@ -1,3 +1,30 @@
+import React, { useState, createContext } from "react";
+
+export const LibrayContext = createContext()
+
+
+
+export const LibraryProvider = (props) => {
+    const [userWords, getUserWords] = useState([]);
+
+    const deleteWord = (id) =>{
+        return fetch(`http://localhost:8088/words/${id}`,
+            {method:"DELETE"})
+            .then(getUserWords)
+    }
+
+return (
+    <LibraryContext.Provider
+    value={{
+
+        deleteWord
+
+  }}>
+    {props.children}
+    </LibraryContext.Provider>
+);
+}
+
 // import React { useState, uesContext} from "react"
 
 /*  /* ========= PSEUDOCODE FOR COMPONENT ========= 
@@ -23,6 +50,3 @@ Library Provider:
     chosenLetter, getChosenLetter,
     setUserWords, getUserWords, deleteUserWord
 / ============================================= */
-
-
-
