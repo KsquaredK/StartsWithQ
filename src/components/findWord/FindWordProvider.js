@@ -28,7 +28,7 @@ export const FindWordContext = createContext();
 // useState will hold and set the array of words.
 export const FindWordProvider = (props) => {
     const [words, setWords] = useState([]);
-    const [userWord, setUserWords] = useState([]);
+    const [userWords, setUserWords] = useState([]);
     const [searchLetters, setSearchLetters] = useState([]);
     const [chosenLetter, setChosenLetter] = useState("");
 
@@ -49,18 +49,18 @@ export const FindWordProvider = (props) => {
   //  return fetch(`https://api.datamuse.com/words?sp=??${letter.replace(/"/g,"")}?????`)
 
   // post data object selected by user input to permanent state, return updated array of user selections
-  const addUserWord = (userWord) => {
+  const addUserWord = (userAddWord) => {
     return fetch("http://localhost:8088/words", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(userWord),
+      body: JSON.stringify(userAddWord),
     })
       .then(() => getUserWords())}
 
 //  get data saved by user id in permanent state, store as current state
-    const getUserWords =() => {
+    const getUserWords = () => {
       return fetch("http://localhost:8088/words")
         .then(res => res.json())
         .then(setUserWords)
@@ -77,7 +77,7 @@ export const FindWordProvider = (props) => {
             setSearchLetters,
             addUserWord,
             getUserWords,
-            userWord,
+            userWords,
             setUserWords,
             chosenLetter,
             setChosenLetter

@@ -1,12 +1,12 @@
 import React, { useState } from "react"
 import { useContext } from "react";
-import { FindWordContext } from './FindWordProvider';
+import { FindWordContext } from "./FindWordProvider";
 import "./FindWord.css"
 
 /*------TODO-first----------*/
 // logic to add searchLetterId id to newUserWordChoice
 
-const currentUser = parseInt(localStorage.getItem("startswithq_user"));
+
 
 export const FindWordList = ()  => {
     const {words, addUserWord, chosenLetter, searchLetters} = useContext(FindWordContext);
@@ -36,8 +36,8 @@ export const FindWordList = ()  => {
         }
         setUserWordChoice(currentUser);
   // PUT word to db and change rendering of chosen word (CSS -animate button going away?, 
-          // delete from component state array?)
-          addUserWord(newUserWordChoice)
+  // delete from component state array?)
+        addUserWord(newUserWordChoice)
   }};
 
   
