@@ -28,7 +28,7 @@ export const FindWordContext = createContext();
 // useState will hold and set the array of words.
 export const FindWordProvider = (props) => {
     const [words, setWords] = useState([]);
-    const [userWords, setUserWords] = useState([]);
+    const [userWord, setUserWords] = useState([]);
     const [searchLetters, setSearchLetters] = useState([]);
     const [chosenLetter, setChosenLetter] = useState("");
 
@@ -49,13 +49,13 @@ export const FindWordProvider = (props) => {
   //  return fetch(`https://api.datamuse.com/words?sp=??${letter.replace(/"/g,"")}?????`)
 
   // post data object selected by user input to permanent state, return updated array of user selections
-  const addUserWord = (userAddWord) => {
+  const addUserWord = (userWord) => {
     return fetch("http://localhost:8088/words", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(userAddWord),
+      body: JSON.stringify(userWord),
     })
       .then(() => getUserWords())}
 
@@ -77,7 +77,7 @@ export const FindWordProvider = (props) => {
             setSearchLetters,
             addUserWord,
             getUserWords,
-            userWords,
+            userWord,
             setUserWords,
             chosenLetter,
             setChosenLetter
@@ -86,6 +86,6 @@ export const FindWordProvider = (props) => {
         {props.children}
         </FindWordContext.Provider>
   );
-    }
+  }
 
     // https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=26038152-9e3f-4e5b-904e-051cb50e1ae6

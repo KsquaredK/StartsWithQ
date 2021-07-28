@@ -1,27 +1,28 @@
-import React, { useContext, useEffect } from "react"
-import { FindWordContext } from "./FindWord/FindWordProvider"
-// import { LibraryContext } from "./LibraryProvider"
+import React, { useContext, useState } from "react"
+import { LibraryContext } from "./LibraryProvider"
+import { useHistory } from "react-router"
 import "./Library.css"
 
-const currentUser = parseInt(localStorage.getItem("startswithq_user"));
+export const LibraryCard = ( {userWord} ) => {
+    const { deleteUserWord } = useContext(LibraryContext)
+    const history = useHistory();
 
-export const LibraryList = () => {
-    // const {deleteWord} = useContext(LibraryContext)
-    const {getUserWords, userWords, chosenLetter} = useContext(FindWordContext)
-
-    // const handleDelete = () => {
-    //     deleteWord(userWords.id)
-    //   }
-    useEffect(() => {
-        getUserWords(userWords)
-        console.log(userWords)
-
-}, [])
+    const handleDeleteWord = () => {
+        deleteUserWord(userWord.userId)
+        .then(() => {
+        history.push("/library")
+        })
+    };
 
 return (
     // temp JSX
     <section className="library">
         <h3 className="library__word">queem</h3>
+        <div className="library__btn">
+            <button className="delete__library" onClick={() => 
+                {handleDeleteWord()}}>Delete
+            </button>
+        </div>
     </section>
 )
 }

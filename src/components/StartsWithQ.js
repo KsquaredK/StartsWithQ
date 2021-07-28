@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { ApplicationViews } from "./ApplicationViews";
 import { NavBar } from "./nav/NavBar";
+import { FindWordProvider } from "./FindWord/FindWordProvider"
 import { Login } from "./auth/login";
 import { Register } from "./auth/register";
 import "./StartsWithQ.css";
@@ -15,6 +16,7 @@ else redirect to login (with routes to those two auth modules)
 
 export const StartsWithQ = () => (
   <>
+  <FindWordProvider>
     <Route
       render={() => {
         if (localStorage.getItem("startswithq_user")) {
@@ -29,6 +31,7 @@ export const StartsWithQ = () => (
         }
       }}
     />
+  </FindWordProvider>
 
     <Route path="/login">
       <Login />
@@ -36,6 +39,7 @@ export const StartsWithQ = () => (
     <Route path="/register">
       <Register />
     </Route>
+
   </>
 );
 
