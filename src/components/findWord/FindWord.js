@@ -25,18 +25,14 @@ This view is the "main view", and holds the static content.
 
 
   /* TRY AFTER MVP: React-Dropdown 
-
   // import { Dropdown } from "react-dropdown";
   
   const defaultOption = options[0],
   <Dropdown options={options} onChange={this._onSelect} value={defaultOption} placeholder="Select an option" />;
-
-
 const letterOptions = [
     { value: 'q', label: 'Q', className: 'letterOption' },
     { value: 'x', label: 'X', className: 'letterOption' },
     { value: 'z', label: 'Z', className: 'letterOption' },
-
     {
      type: 'group', name: 'letterPosition', items: [
        { value: 'hasLetter', label: 'Has this letter', className: 'letterPositionItem' },
@@ -59,12 +55,10 @@ const letterOptions = [
     { value: 'x', label: 'X' },
     { value: 'Z', label: 'Z' }
   ]
-
   const positionOptions = [
     { value: 'start', label: 'starts with' },
     { value: 'occur', label: 'has a' }
   ]
-
 */
 
 
@@ -135,7 +129,6 @@ event occurs after some value is selected in an element. A dropdown list can be 
 closer to a regular input field since, under the shell, they both aim to get some value 
 from the user. To listen to those selected values when the user dynamically changes them, 
 the onSelect event comes in handy.
-
 onSelect Event Handler
 After the onSelect event has been set to watch for a selection of value, the next step 
 is to store that dynamic data somewhere. To do so, an event handler or a simple JavaScript 

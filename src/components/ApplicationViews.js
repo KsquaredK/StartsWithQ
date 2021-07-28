@@ -1,11 +1,12 @@
 
  import React from "react";
  import { Route } from "react-router-dom";
- import { FindWordProvider } from "./FindWord/FindWordProvider";
- import { FindWordList } from "./FindWord/FindWordList";
  import { FindWord } from "./FindWord/FindWord";
  import { FindWordSearch } from "./FindWord/FindWordSearch";
-//  import { LibraryProvider } from "./Library/LibraryProvider";
+ import { FindWordList } from "./FindWord/FindWordList";
+ import { FindWordProvider } from "./FindWord/FindWordProvider";
+ import { LibraryList } from "./Library/LibraryList";
+ import { LibraryProvider } from "./Library/LibraryProvider";
  import { UserProvider } from "./user/UserProvider"; 
  import logo from "./auth/Qlogo.png";
 
@@ -28,27 +29,30 @@ export const ApplicationViews = () => {
             </Route>
       <FindWordProvider>
         <UserProvider>
-          {/* <LibraryProvider> */}
-              <Route exact path="/">
-                <FindWord />
-              </Route>
+          <LibraryProvider>
+          <Route exact path="/">
+               <FindWord />
+             </Route>
               <Route path="/words/search">
                 <FindWordSearch />
               </Route>
               <Route path="/words/list">
                 <FindWordList />
               </Route>
-              {/* <Route path="/${chosenLetter}library">
-                <Library />
-              </Route> */}
-          {/* </LibraryProvider> */}
+              <Route path="/library/:letter">
+                <LibraryList />
+              </Route> 
+              <Route path="/library/${x}">
+                <LibraryList />
+              </Route> 
+              <Route path="/library/${z}">
+                <LibraryList />
+              </Route> 
+          </LibraryProvider>
         </UserProvider>
       </FindWordProvider>
     </>
   );
 };
 
-//  <Route path="/zWords/edit/:zWordId(\d+)">
-//                 <ZWordForm />
-//                 </Route>
-//                 */
+

@@ -82,3 +82,16 @@ export const FindWordSearch = () => {
     </>
     );
  }
+ /* +++++Description of onSelect for capturing user input ++++ 
+onSelect Event
+Just like the onChange event watches for changes in an input field, the onSelect 
+event occurs after some value is selected in an element. A dropdown list can be drawn 
+closer to a regular input field since, under the shell, they both aim to get some value 
+from the user. To listen to those selected values when the user dynamically changes them, 
+the onSelect event comes in handy.
+onSelect Event Handler
+After the onSelect event has been set to watch for a selection of value, the next step 
+is to store that dynamic data somewhere. To do so, an event handler or a simple JavaScript 
+function is invoked every time the event is triggered, and the data is extracted 
+using the event object. In this case, it becomes even simpler using props.
+*/

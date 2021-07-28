@@ -60,7 +60,7 @@ export const FindWordProvider = (props) => {
       .then(() => getUserWords())}
 
 //  get data saved by user id in permanent state, store as current state
-    const getUserWords =() => {
+    const getUserWords = () => {
       return fetch("http://localhost:8088/words")
         .then(res => res.json())
         .then(setUserWords)
@@ -86,6 +86,6 @@ export const FindWordProvider = (props) => {
         {props.children}
         </FindWordContext.Provider>
   );
-    }
+  }
 
     // https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=26038152-9e3f-4e5b-904e-051cb50e1ae6
