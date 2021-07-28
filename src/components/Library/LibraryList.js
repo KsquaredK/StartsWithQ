@@ -10,15 +10,16 @@ const currentUser = parseInt(localStorage.getItem("startswithq_user"));
 // cf letter to searchLetter.name w/ find
 // cf that search letter id to that in userWords w/ find
 export const LibraryList = () => {
-  const {userWords, getUserWords, searchLetters, getSearchLetters} = useContext(FindWordContext)
+  const {userWords, getUserWords} = useContext(FindWordContext)
   const {letter} = useParams()
-  console.log(letter)
-    
+  
     useEffect(() => {
          console.log("useEffect: getWords")
          getUserWords()
-         .then(getSearchLetters())
-     }, [])
+          // .then(set(userWords.find((letter) =>  letter.name === "q")))
+          // .then(setX(searchLetters.find((letter) =>  letter.name === "x")))
+          // .then(setZ(searchLetters.find((letter) =>  letter.name === "z")))
+        }, [])
 // Capture current searchLetter used in navigation to route to this page (useParams? useState?),
 //  expose it to getUserWords fetch call,
 
@@ -27,9 +28,11 @@ export const LibraryList = () => {
     <h1>
         {letter.toUpperCase()} Library
     </h1>
-
+    {userWords.map((userWord => {
+					if (letter && userWord.userId === currentUser) {
+					return <LibraryCard key={userWord.id} userWord={userWord} />
+        }}))}
 		</>
-	
 	)
 }
 
@@ -52,27 +55,16 @@ updated word list.
     and then verify words for wordgame viability by using Merriam-Webster API [add to ERD: verified boolean]*/
 
 
+/*  LOGIC FOR ARRIVING AT USERWORDS by user and searchletter ids  
 
-/* 			<section className="library_group">
-				<div className="library_list">
-						<LibraryCard key={userWord.id} userWord={userWord} />
-				</div>
-			</section> */
+/*  const {searchLetters, getSearchLetters} = useContext(FindWordContext)
+  const [q, setQ] = useState("")
+  const [x, setX] = useState("")
+  const [z, setZ] = useState("")
 
-          // const currentLetter = (searchLetters) => {
-    //   searchLetters.map(searchLetter => {
-    //     (searchLetter.id <= 1){
-    //     return (
-    //     currentLetter = searchLetter.id
-    //     )}
-    //   })
-    // }
-
-    // const currentWords = (userWords) => {
-    //   userWords.map(userWord => {
-    //     if (userWord.userId === currentUser && userWord.searchLetterId === currentLetter) {
-    //     return (
-    //       currentWords
-    //     )}
-    //   })
-    // }
+  useEffect(() => {    
+    getSearchLetters()
+    .then(setQ(searchLetters.find((letter) =>  letter.name === "q")))
+    .then(setX(searchLetters.find((letter) =>  letter.name === "x")))
+    .then(setZ(searchLetters.find((letter) =>  letter.name === "z")))
+  }, []) */ 

@@ -42,10 +42,10 @@ export const ApplicationViews = () => {
               <Route path="/library/:letter">
                 <LibraryList />
               </Route> 
-              <Route path="/library/${x}">
+              <Route path="/library/:letter">
                 <LibraryList />
               </Route> 
-              <Route path="/library/${z}">
+              <Route path="/library/:letter">
                 <LibraryList />
               </Route> 
           </LibraryProvider>
