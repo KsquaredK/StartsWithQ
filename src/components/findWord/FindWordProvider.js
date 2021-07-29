@@ -28,7 +28,7 @@ export const FindWordContext = createContext();
 // useState will hold and set the array of words.
 export const FindWordProvider = (props) => {
     const [words, setWords] = useState([]);
-    const [userWord, setUserWords] = useState([]);
+    const [userWords, setUserWords] = useState([]);
     const [searchLetters, setSearchLetters] = useState([]);
     const [chosenLetter, setChosenLetter] = useState("");
 
@@ -61,7 +61,7 @@ export const FindWordProvider = (props) => {
 
 //  get data saved by user id in permanent state, store as current state
     const getUserWords = () => {
-      return fetch("http://localhost:8088/words")
+      return fetch("http://localhost:8088/words?_embed=users")
         .then(res => res.json())
         .then(setUserWords)
     }
@@ -77,7 +77,7 @@ export const FindWordProvider = (props) => {
             setSearchLetters,
             addUserWord,
             getUserWords,
-            userWord,
+            userWords,
             setUserWords,
             chosenLetter,
             setChosenLetter

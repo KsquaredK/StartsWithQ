@@ -12,13 +12,16 @@ const currentUser = parseInt(localStorage.getItem("startswithq_user"));
 export const LibraryList = () => {
   const {userWords, getUserWords} = useContext(FindWordContext)
   const {letter} = useParams()
+  console.log(letter)
+  console.log("params")
+
+  // const libraryWords = () => {
+  //   searchLetters.filter((letter) =>  letter.id === userWords)
+  // }
   
     useEffect(() => {
          console.log("useEffect: getWords")
          getUserWords()
-          // .then(set(userWords.find((letter) =>  letter.name === "q")))
-          // .then(setX(searchLetters.find((letter) =>  letter.name === "x")))
-          // .then(setZ(searchLetters.find((letter) =>  letter.name === "z")))
         }, [])
 // Capture current searchLetter used in navigation to route to this page (useParams? useState?),
 //  expose it to getUserWords fetch call,
@@ -28,10 +31,10 @@ export const LibraryList = () => {
     <h1>
         {letter.toUpperCase()} Library
     </h1>
-    {userWords.map((userWord => {
+    {/* {userWords.map((userWord => {
 					if (letter && userWord.userId === currentUser) {
 					return <LibraryCard key={userWord.id} userWord={userWord} />
-        }}))}
+        }}))} */}
 		</>
 	)
 }
@@ -68,3 +71,20 @@ updated word list.
     .then(setX(searchLetters.find((letter) =>  letter.name === "x")))
     .then(setZ(searchLetters.find((letter) =>  letter.name === "z")))
   }, []) */ 
+
+        //  .then(libraryWords => {
+        //    ())
+/* .then(location => {
+                    setLocation(location)
+                    setIsLoading(false)
+                })
+        } else {
+            setIsLoading(false)
+        } */
+
+         
+
+
+          // .then(set(userWords.find((letter) =>  letter.name === "q")))
+          // .then(setX(searchLetters.find((letter) =>  letter.name === "x")))
+          // .then(setZ(searchLetters.find((letter) =>  letter.name === "z")))
