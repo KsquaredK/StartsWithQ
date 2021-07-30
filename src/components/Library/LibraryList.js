@@ -1,40 +1,60 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import { FindWordContext } from "../FindWord/FindWordProvider";
 import { LibraryCard } from "./LibraryCard"
 import "./Library.css"
 
 
-const currentUser = parseInt(localStorage.getItem("startswithq_user"));
 
 // cf letter to searchLetter.name w/ find
 // cf that search letter id to that in userWords w/ find
 export const LibraryList = () => {
-  const {userWords, getUserWords} = useContext(FindWordContext)
+  const {userWords, getUserWords, searchLetters, getSearchLetters} = useContext(FindWordContext)
   const {letter} = useParams()
-  console.log(letter)
-  console.log("params")
+  const currentUser = parseInt(localStorage.getItem("startswithq_user"));
+  const [foundLetter, setFoundLetter] = useState({})
+  const [libraryWords, setLibraryWords] = useState([])
 
-  // const libraryWords = () => {
-  //   searchLetters.filter((letter) =>  letter.id === userWords)
-  // }
   
-    useEffect(() => {
-         console.log("useEffect: getWords")
-         getUserWords()
-        }, [])
-// Capture current searchLetter used in navigation to route to this page (useParams? useState?),
-//  expose it to getUserWords fetch call,
+  useEffect(() => {
+    getUserWords(currentUser)
+    .then(() => {
+      console.log("userWordsbane", userWords)
+      getSearchLetters()
+    })
+    .then(() => {
+      /* match navbar letter to searchLetter.name  */
+      const foundLetter = searchLetters.find(searchLetter => letter === searchLetter.name)
+      setFoundLetter(foundLetter)
+    })
+    .then(() => {
+      /* find userWords whose userId foreign key matches 
+      that of the foundLetter */
+      console.log("userWords in useEffect", userWords)
+      const libraryWords = userWords.filter(userWord => {
+        return userWord.searchLetterId === foundLetter.id
+      })
+      setLibraryWords(libraryWords)
+      console.log(libraryWords)
+    } )
+  }, [])
+  
+
 
     return (
         <>
     <h1>
         {letter.toUpperCase()} Library
     </h1>
-    {/* {userWords.map((userWord => {
-					if (letter && userWord.userId === currentUser) {
-					return <LibraryCard key={userWord.id} userWord={userWord} />
-        }}))} */}
+    <section>
+      {libraryWords.map(libraryWord => {
+				return (
+          <LibraryCard key={libraryWord.id} libraryWord={libraryWord} />
+          )
+        }
+      )
+    }
+    </section>
 		</>
 	)
 }
@@ -72,15 +92,7 @@ updated word list.
     .then(setZ(searchLetters.find((letter) =>  letter.name === "z")))
   }, []) */ 
 
-        //  .then(libraryWords => {
-        //    ())
-/* .then(location => {
-                    setLocation(location)
-                    setIsLoading(false)
-                })
-        } else {
-            setIsLoading(false)
-        } */
+
 
          
 

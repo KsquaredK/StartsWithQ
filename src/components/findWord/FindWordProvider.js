@@ -57,13 +57,18 @@ export const FindWordProvider = (props) => {
       },
       body: JSON.stringify(userWord),
     })
-      .then(() => getUserWords())}
+   }
 
 //  get data saved by user id in permanent state, store as current state
-    const getUserWords = () => {
-      return fetch("http://localhost:8088/words?_embed=users")
+    const getUserWords = (currentUserId) => {
+      return fetch(`http://localhost:8088/words?_expand=user&_expand=searchLetter`)
         .then(res => res.json())
-        .then(setUserWords)
+        .then((words) => {
+          console.log("all words", words)
+          const filteredWords = words.filter((word) => word.userId === currentUserId)
+          setUserWords(filteredWords)
+          console.log("filtered words", filteredWords)
+        })
     }
 
     return (

@@ -6,7 +6,7 @@ import "./FindWord.css"
 
 
 export const FindWordList = ()  => {
-  const {words, addUserWord, chosenLetter, searchLetters} = useContext(FindWordContext);
+  const {words, addUserWord, getUserWords,  chosenLetter, searchLetters} = useContext(FindWordContext);
   
   const [userWordChoice, setUserWordChoice] = useState({})
   const currentUserId = parseInt(localStorage.getItem("startswithq_user"));
@@ -36,6 +36,7 @@ export const FindWordList = ()  => {
   // PUT word to db and change rendering of chosen word (CSS -animate button going away?, 
   // delete from component state array?)
         addUserWord(newUserWordChoice)
+        .then(() => getUserWords(currentUserId))
   }};
 
   
