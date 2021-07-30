@@ -1,7 +1,6 @@
-import React, {useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import "./NavBar.css";
-import { useEffect } from "react/cjs/react.development";
+import "./NavBar.css"
 
 export const NavBar = (props) => {
  
@@ -45,14 +44,3 @@ export const NavBar = (props) => {
 );
   }
 
-  /*  const {searchLetters, getSearchLetters} = useContext(FindWordContext)
-  const [q, setQ] = useState("")
-  const [x, setX] = useState("")
-  const [z, setZ] = useState("")
-
-  useEffect(() => {    
-    getSearchLetters()
-    .then(setQ(searchLetters.find((letter) =>  letter.name === "q")))
-    .then(setX(searchLetters.find((letter) =>  letter.name === "x")))
-    .then(setZ(searchLetters.find((letter) =>  letter.name === "z")))
-  }, []) */

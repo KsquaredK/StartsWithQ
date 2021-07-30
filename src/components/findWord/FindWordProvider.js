@@ -28,7 +28,7 @@ export const FindWordContext = createContext();
 // useState will hold and set the array of words.
 export const FindWordProvider = (props) => {
     const [words, setWords] = useState([]);
-    const [userWord, setUserWords] = useState([]);
+    const [userWords, setUserWords] = useState([]);
     const [searchLetters, setSearchLetters] = useState([]);
     const [chosenLetter, setChosenLetter] = useState("");
 
@@ -57,14 +57,24 @@ export const FindWordProvider = (props) => {
       },
       body: JSON.stringify(userWord),
     })
-      .then(() => getUserWords())}
+   }
 
 //  get data saved by user id in permanent state, store as current state
-    const getUserWords = () => {
-      return fetch("http://localhost:8088/words")
+    const getUserWords = (currentUserId) => {
+      return fetch(`http://localhost:8088/words?_expand=user&_expand=searchLetter`)
         .then(res => res.json())
-        .then(setUserWords)
+        .then((words) => {
+          console.log("all words", words)
+          const filteredWords = words.filter((word) => word.userId === currentUserId)
+          return setUserWords(filteredWords)
+        })
     }
+
+    const deleteUserWord = (userWordId) => {
+      return fetch(`http://localhost:8088/words/${userWordId}`,
+          {method:"DELETE"})
+          .then(getUserWords)
+  }
 
     return (
         <FindWordContext.Provider
@@ -77,11 +87,12 @@ export const FindWordProvider = (props) => {
             setSearchLetters,
             addUserWord,
             getUserWords,
-            userWord,
+            userWords,
             setUserWords,
             chosenLetter,
-            setChosenLetter
-            // deleteUserWord,
+            setChosenLetter,
+            deleteUserWord
+
       }}>
         {props.children}
         </FindWordContext.Provider>
