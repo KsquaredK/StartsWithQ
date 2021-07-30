@@ -29,7 +29,7 @@ export const FindWordList = ()  => {
         const newUserWordChoice = {
             word: word.word,
             searchLetterId: matchingLetterObj.id, 
-            userID: currentUserId,
+            userId: currentUserId,
             timestamp: Date.now(),
         }
         setUserWordChoice(currentUserId);

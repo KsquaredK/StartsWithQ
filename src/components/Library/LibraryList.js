@@ -14,37 +14,44 @@ export const LibraryList = () => {
   const currentUser = parseInt(localStorage.getItem("startswithq_user"));
   const [foundLetter, setFoundLetter] = useState({})
   const [libraryWords, setLibraryWords] = useState([])
-
+  const headerLetter = letter.toUpperCase()
   
   useEffect(() => {
     getUserWords(currentUser)
     .then(() => {
-      console.log("userWordsbane", userWords)
       getSearchLetters()
     })
-    .then(() => {
-      /* match navbar letter to searchLetter.name  */
-      const foundLetter = searchLetters.find(searchLetter => letter === searchLetter.name)
-      setFoundLetter(foundLetter)
-    })
-    .then(() => {
-      /* find userWords whose userId foreign key matches 
-      that of the foundLetter */
-      console.log("userWords in useEffect", userWords)
-      const libraryWords = userWords.filter(userWord => {
-        return userWord.searchLetterId === foundLetter.id
-      })
-      setLibraryWords(libraryWords)
-      console.log(libraryWords)
-    } )
+     
   }, [])
+
+  useEffect(() => {
+      /* match navbar letter to searchLetter.name  */
+      const fLetter = searchLetters.find(searchLetter => letter === searchLetter.name)
+      console.log("useEffect #1 - second in chain", fLetter)
+      setFoundLetter(fLetter)
+    }, [searchLetters])   
+
+  useEffect(() => {
+    /* find userWords whose userId foreign key matches 
+    that of the foundLetter */
+    console.log("useEffect #2 -- userWords", userWords, "foundletter", foundLetter)
+    const libraryWords = userWords.filter(userWord => {
+      return userWord.searchLetterId === foundLetter?.id
+    })
+    console.log("useEffect #2 -library words", libraryWords)
+    setLibraryWords(libraryWords)
+    }, [foundLetter])
+  
+  useEffect(() => {
+      console.log("userWords - state change", userWords)
+    }, [userWords])
   
 
 
     return (
         <>
     <h1>
-        {letter.toUpperCase()} Library
+        {headerLetter} Library
     </h1>
     <section>
       {libraryWords.map(libraryWord => {
@@ -61,9 +68,10 @@ export const LibraryList = () => {
 
 /* ========== LIBRARY LIST ============= 
 
-• Library List: Use dynamic interpolation to render a "Q", "X", or "Z" library view. 
-Render list by importing LibraryCard. For each card, render a delete button
-that deletes the selected word from the words dataset. Re-render library view upon click, fetching
+•  √ Library List: Use dynamic interpolation to render a "Q", "X", or "Z" library view. 
+ √ Render list by importing LibraryCard. For each card, render a delete button
+that deletes the selected word from the words dataset. 
+√ Re-render library view upon click, fetching
 updated word list.
 
   - Stretch: Filter results by listing words in the following ways [array methods]:
@@ -76,27 +84,3 @@ updated word list.
 
   - Stretchiest: Filter search results, removing capitalized words, phrases and hyphenated words, [array methods]
     and then verify words for wordgame viability by using Merriam-Webster API [add to ERD: verified boolean]*/
-
-
-/*  LOGIC FOR ARRIVING AT USERWORDS by user and searchletter ids  
-
-/*  const {searchLetters, getSearchLetters} = useContext(FindWordContext)
-  const [q, setQ] = useState("")
-  const [x, setX] = useState("")
-  const [z, setZ] = useState("")
-
-  useEffect(() => {    
-    getSearchLetters()
-    .then(setQ(searchLetters.find((letter) =>  letter.name === "q")))
-    .then(setX(searchLetters.find((letter) =>  letter.name === "x")))
-    .then(setZ(searchLetters.find((letter) =>  letter.name === "z")))
-  }, []) */ 
-
-
-
-         
-
-
-          // .then(set(userWords.find((letter) =>  letter.name === "q")))
-          // .then(setX(searchLetters.find((letter) =>  letter.name === "x")))
-          // .then(setZ(searchLetters.find((letter) =>  letter.name === "z")))

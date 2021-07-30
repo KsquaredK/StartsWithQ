@@ -1,27 +1,30 @@
-import React, { useState, createContext } from "react";
+// import React, { useState, createContext } from "react";
+// // import { FindWordContext } from "./FindWordContext"
 
-export const LibraryContext = createContext()
+// // const {getUserWords, setUserWords} = useContext(FindWordContext)
 
-export const LibraryProvider = (props) => {
-    const [getUserWords] = useState([]);
+// export const LibraryContext = createContext()
 
-    const deleteUserWord = (id) =>{
-        return fetch(`http://localhost:8088/words/${id}`,
-            {method:"DELETE"})
-            .then(getUserWords)
-    }
+// export const LibraryProvider = (props) => {
 
-return (
-    <LibraryContext.Provider
-    value={{
+//     const deleteUserWord = (userWordId) => {
+//         return fetch(`http://localhost:8088/words/${userWordId}`,
+//             {method:"DELETE"})
+//             .then(setUserWords)
+//             .then(getUserWords)
+//     }
 
-        deleteUserWord
+// return (
+//     <LibraryContext.Provider
+//     value={{
 
-  }}>
-    {props.children}
-    </LibraryContext.Provider>
-);
-}
+//         deleteUserWord
+
+//   }}>
+//     {props.children}
+//     </LibraryContext.Provider>
+// );
+// }
 
 // import React { useState, uesContext} from "react"
 

@@ -66,10 +66,15 @@ export const FindWordProvider = (props) => {
         .then((words) => {
           console.log("all words", words)
           const filteredWords = words.filter((word) => word.userId === currentUserId)
-          setUserWords(filteredWords)
-          console.log("filtered words", filteredWords)
+          return setUserWords(filteredWords)
         })
     }
+
+    const deleteUserWord = (userWordId) => {
+      return fetch(`http://localhost:8088/words/${userWordId}`,
+          {method:"DELETE"})
+          .then(getUserWords)
+  }
 
     return (
         <FindWordContext.Provider
@@ -85,8 +90,9 @@ export const FindWordProvider = (props) => {
             userWords,
             setUserWords,
             chosenLetter,
-            setChosenLetter
-            // deleteUserWord,
+            setChosenLetter,
+            deleteUserWord
+
       }}>
         {props.children}
         </FindWordContext.Provider>

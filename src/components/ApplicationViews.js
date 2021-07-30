@@ -6,7 +6,6 @@
  import { FindWordList } from "./FindWord/FindWordList";
  import { FindWordProvider } from "./FindWord/FindWordProvider";
  import { LibraryList } from "./Library/LibraryList";
- import { LibraryProvider } from "./Library/LibraryProvider";
  import { UserProvider } from "./user/UserProvider"; 
  import logo from "./auth/Qlogo.png";
 
@@ -29,8 +28,7 @@ export const ApplicationViews = () => {
             </Route>
       <FindWordProvider>
         <UserProvider>
-          <LibraryProvider>
-          <Route exact path="/">
+            <Route exact path="/">
                <FindWord />
              </Route>
               <Route path="/words/search">
@@ -42,13 +40,6 @@ export const ApplicationViews = () => {
               <Route path="/library/:letter">
                 <LibraryList />
               </Route> 
-              <Route path="/library/:letter">
-                <LibraryList />
-              </Route> 
-              <Route path="/library/:letter">
-                <LibraryList />
-              </Route> 
-          </LibraryProvider>
         </UserProvider>
       </FindWordProvider>
     </>
