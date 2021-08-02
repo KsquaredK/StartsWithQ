@@ -64,15 +64,16 @@ export const FindWordProvider = (props) => {
       return fetch(`http://localhost:8088/words?_expand=user&_expand=searchLetter`)
         .then(res => res.json())
         .then((words) => {
-          console.log("all words", words)
+          console.log("all user words", words)
           const filteredWords = words.filter((word) => word.userId === currentUserId)
           return setUserWords(filteredWords)
         })
     }
 
     const deleteUserWord = (userWordId) => {
-      return fetch(`http://localhost:8088/words/${userWordId}`,
-          {method:"DELETE"})
+      return fetch(`http://localhost:8088/words/${userWordId}`, {
+          method:"DELETE"
+        })
           .then(getUserWords)
   }
 

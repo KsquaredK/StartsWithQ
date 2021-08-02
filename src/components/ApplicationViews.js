@@ -9,13 +9,6 @@
  import { UserProvider } from "./user/UserProvider"; 
  import logo from "./auth/Qlogo.png";
 
- /* +++++++ PSEUDO-CODE ++++++++  
- create these routes: "Starts With Q" view (FindWord.js) ui main page,
- FindWordForm (StartsWithQ search form),
- FindWordList (Starts WithQ search results and save feature)
- {chosenLetter}Library (user's word library by letter)
-*/
-
 
 
 export const ApplicationViews = () => {
