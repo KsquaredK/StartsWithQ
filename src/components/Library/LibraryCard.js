@@ -15,7 +15,7 @@ export const LibraryCard = ( {libraryWord} ) => {
     const handleDeleteWord = () => {
         deleteUserWord(libraryWord.id)
         .then(() => {
-            console.log("delete", libraryWord.id)
+            console.log("delete", libraryWord.id, libraryWord.word)
         })
         .then(() => history.push(`/library/${currentLibraryLetter}`))
     };
