@@ -4,6 +4,8 @@ import React, { useState, createContext } from "react";
 • FW Search: fetch search letters, map them to a dropdown menu, save user's selection (a variable
   capturing a string of the letter name) to state, redirect to search results view
 
+    -Stretch: toggle whether searching for "starts with" or "occurs in word"
+
     -Stretch: optional second dropdown that lets you choose search letter's position in word
 
 • FW List: render search results view by mappping though words in FindWordContext. When user
@@ -31,7 +33,7 @@ export const FindWordProvider = (props) => {
     const [userWords, setUserWords] = useState([]);
     const [searchLetters, setSearchLetters] = useState([]);
     const [chosenLetter, setChosenLetter] = useState("");
-    const [libraryWords, setLibraryWords] = useState([]);
+    const currentUser = parseInt(localStorage.getItem("startswithq_user"));
 
     // return array of values used as search terms from permanent state
     const getSearchLetters = () => {
@@ -64,9 +66,11 @@ export const FindWordProvider = (props) => {
     const getUserWords = (currentUserId) => {
       return fetch(`http://localhost:8088/words?_expand=user&_expand=searchLetter`)
         .then(res => res.json())
+        // .then(setRefresh(false))
         .then((words) => {
-        console.log("all user words", words)
-        const filteredWords = words.filter((word) => word.userId === currentUserId)
+          debugger
+          const filteredWords = words.filter((word) => word.userId === currentUserId)
+          console.log("all filteredWords", filteredWords)
         return setUserWords(filteredWords)
         }
       )
@@ -74,7 +78,7 @@ export const FindWordProvider = (props) => {
 
     /* const filteredLibraryWords = filteredWords((filteredWord) => filteredword.searchLetterId) */
 
-    const deleteUserWord = (userWordId, currentUser) => {
+    const deleteUserWord = (userWordId) => {
       return fetch(`http://localhost:8088/words/${userWordId}`, {
           method:"DELETE"
         })
@@ -96,9 +100,9 @@ export const FindWordProvider = (props) => {
             setUserWords,
             chosenLetter,
             setChosenLetter,
-            deleteUserWord,
-            libraryWords, 
-            setLibraryWords
+            deleteUserWord
+            // refresh,
+            // setRefresh
 
         }}>
         {props.children}

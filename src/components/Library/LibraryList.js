@@ -13,11 +13,13 @@ export const LibraryList = () => {
      set searched letter to state as foundLetter, update
      set user's words filtered by searched letter to state, update
      change useParams' {letter} to upper case in header */
+  /* ======= Hooks =============*/
   const {userWords, getUserWords, searchLetters, getSearchLetters} = useContext(FindWordContext)
   const {letter} = useParams()
-  const currentUser = parseInt(localStorage.getItem("startswithq_user"));
   const [foundLetter, setFoundLetter] = useState({})
   const [libraryWords, setLibraryWords] = useState([])
+  
+  const currentUser = parseInt(localStorage.getItem("startswithq_user"));
   const headerLetter = letter.toUpperCase()
   
   // First GET userWords by current user's id, then get search letters
@@ -26,7 +28,6 @@ export const LibraryList = () => {
     .then(() => {
       getSearchLetters()
     })
-     
   }, [])
 
 // Second, find searchLetter whose name value matches string in useParams, set to state
@@ -49,16 +50,17 @@ foundLEtter is undefined obj. 2nd time thru, both variables return data objects.
   returns data array.  ===== */
   useEffect(() => {
     console.log("useEffect #2 -- userWords", userWords, "foundletter", foundLetter)
-    const libraryWords = userWords.filter(userWord => {
+    const libraryWords = userWords.filter(userWord  => {
       return userWord.searchLetterId === foundLetter?.id
     })
     console.log("useEffect #2.1 -libraryWords", libraryWords)
     setLibraryWords(libraryWords)
-    }, [foundLetter])
+    }, [foundLetter, userWords])
   
-  useEffect(() => {
-    console.log("useEffect #3 - userWords - state change", userWords)
-  }, [foundLetter])
+  // useEffect(() => {
+  //   getUserWords(currentUser)
+  //   console.log("useEffect #3 - userWords - state change", userWords)
+  // }, [])
 
 
   return (
@@ -69,7 +71,7 @@ foundLEtter is undefined obj. 2nd time thru, both variables return data objects.
       <section>
         {libraryWords.map(libraryWord => {
           return (
-            <LibraryCard key={libraryWord.id} libraryWord={libraryWord} />
+            <LibraryCard key={libraryWord.id} libraryWord={libraryWord} letter={letter}/>
             )
           } 
         ) 
