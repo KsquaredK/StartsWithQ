@@ -2,7 +2,6 @@
  import React from "react";
  import { Route } from "react-router-dom";
  import { FindWord } from "./FindWord/FindWord";
- import { FindWordSearch } from "./FindWord/FindWordSearch";
  import { FindWordList } from "./FindWord/FindWordList";
  import { FindWordProvider } from "./FindWord/FindWordProvider";
  import { LibraryList } from "./Library/LibraryList";
@@ -14,25 +13,27 @@
 export const ApplicationViews = () => {
   return (
     <>
-    <Route exact path="/">
-                <div className="header">
-                    <img src={logo} alt="Starts With Q logo" />
-                </div>
-            </Route>
+      <Route exact path="/">
+        <div className="header">
+          <img src={logo} alt="Starts With Q logo" />
+        </div>
+      </Route>
+      
       <FindWordProvider>
         <UserProvider>
-            <Route exact path="/">
-               <FindWord />
-             </Route>
-              <Route path="/words/search">
-                <FindWordSearch />
-              </Route>
-              <Route path="/words/list">
-                <FindWordList />
-              </Route>
-              <Route path="/library/:letter">
-                <LibraryList />
-              </Route> 
+
+          <Route exact path="/">
+            <FindWord />
+          </Route>
+
+          <Route path="/words/list">
+            <FindWordList />
+          </Route>
+
+          <Route path="/library/:letter">
+            <LibraryList />
+          </Route> 
+
         </UserProvider>
       </FindWordProvider>
     </>

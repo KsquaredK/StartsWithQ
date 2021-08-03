@@ -35,11 +35,11 @@ export const LibraryList = () => {
 foundLEtter is undefined obj. 2nd time thru, both variables return data objects. ===== */
   useEffect(() => {
       /* match navbar letter to searchLetter.name  */
-      const findLetter = searchLetters.find(searchLetter => letter === searchLetter.name)
-      console.log("useEffect #1 - findLetter", findLetter)
-      setFoundLetter(findLetter)
-      console.log("useEffect #1.1 - setFoundLetter", findLetter, foundLetter)
-    }, [searchLetters, letter])   
+    const findLetter = searchLetters.find(searchLetter => letter === searchLetter.name)
+    console.log("useEffect #1 - findLetter", findLetter)
+    setFoundLetter(findLetter)
+    console.log("useEffect #1.1 - setFoundLetter", findLetter, foundLetter)
+  }, [searchLetters, letter])   
 
   // Third, filter user's words in state for words whose search letter foreign key match the found letter id,
   // and set those filtered library words to state, and track changes in state of foundLetter
@@ -56,25 +56,25 @@ foundLEtter is undefined obj. 2nd time thru, both variables return data objects.
     setLibraryWords(libraryWords)
     }, [foundLetter])
   
-  // useEffect(() => {
-  //     console.log("useEffect #3 - userWords - state change", userWords, typeof userWords, typeof libraryWords)
-  //   }, [userWords])
+  useEffect(() => {
+    console.log("useEffect #3 - userWords - state change", userWords)
+  }, [foundLetter])
 
 
-    return (
-        <>
-    <h1>
-        {headerLetter} Library
-    </h1>
-    <section>
-      {libraryWords.map(libraryWord => {
-				return (
-          <LibraryCard key={libraryWord.id} libraryWord={libraryWord} />
-          )
-        }
-      )
-    }
-    </section>
+  return (
+    <>
+      <h1>
+          {headerLetter} Library
+      </h1>
+      <section>
+        {libraryWords.map(libraryWord => {
+          return (
+            <LibraryCard key={libraryWord.id} libraryWord={libraryWord} />
+            )
+          } 
+        ) 
+       }
+      </section>
 		</>
 	)
 }
