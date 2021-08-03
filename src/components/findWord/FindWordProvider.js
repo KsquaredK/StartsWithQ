@@ -31,6 +31,7 @@ export const FindWordProvider = (props) => {
     const [userWords, setUserWords] = useState([]);
     const [searchLetters, setSearchLetters] = useState([]);
     const [chosenLetter, setChosenLetter] = useState("");
+    const [libraryWords, setLibraryWords] = useState([]);
 
     // return array of values used as search terms from permanent state
     const getSearchLetters = () => {
@@ -49,33 +50,36 @@ export const FindWordProvider = (props) => {
   //  return fetch(`https://api.datamuse.com/words?sp=??${letter.replace(/"/g,"")}?????`)
 
   // post data object selected by user input to permanent state, return updated array of user selections
-  const addUserWord = (userWord) => {
-    return fetch("http://localhost:8088/words", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userWord),
-    })
-   }
+    const addUserWord = (userWord) => {
+      return fetch("http://localhost:8088/words", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userWord),
+      })
+    }
 
 //  get data saved by user id in permanent state, store as current state
     const getUserWords = (currentUserId) => {
       return fetch(`http://localhost:8088/words?_expand=user&_expand=searchLetter`)
         .then(res => res.json())
         .then((words) => {
-          console.log("all user words", words)
-          const filteredWords = words.filter((word) => word.userId === currentUserId)
-          return setUserWords(filteredWords)
-        })
+        console.log("all user words", words)
+        const filteredWords = words.filter((word) => word.userId === currentUserId)
+        return setUserWords(filteredWords)
+        }
+      )
     }
 
-    const deleteUserWord = (userWordId) => {
+    /* const filteredLibraryWords = filteredWords((filteredWord) => filteredword.searchLetterId) */
+
+    const deleteUserWord = (userWordId, currentUser) => {
       return fetch(`http://localhost:8088/words/${userWordId}`, {
           method:"DELETE"
         })
-          .then(getUserWords)
-  }
+        .then(() => getUserWords(currentUser))
+    }
 
     return (
         <FindWordContext.Provider
@@ -92,9 +96,11 @@ export const FindWordProvider = (props) => {
             setUserWords,
             chosenLetter,
             setChosenLetter,
-            deleteUserWord
+            deleteUserWord,
+            libraryWords, 
+            setLibraryWords
 
-      }}>
+        }}>
         {props.children}
         </FindWordContext.Provider>
   );
