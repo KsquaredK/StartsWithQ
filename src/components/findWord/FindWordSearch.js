@@ -8,8 +8,10 @@ import "./FindWord.css";
 
 export const FindWordSearch = () => {
     const {searchLetters, getSearchLetters, getWords, chosenLetter, setChosenLetter} = useContext(FindWordContext);
-
     const [rSelected, setRSelected] = useState();
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+
+    const toggle = () => setDropdownOpen(prevState => !prevState);
     
     useEffect(() => {
         getSearchLetters();
@@ -69,14 +71,14 @@ export const FindWordSearch = () => {
       // }
 
     return (
-    
-      <>
-        <form className="findWordForm">
+     <>
+        <Form className="findWordForm">
         <h2 className="findWordForm__title">Find tricky words that use Q, X or Z</h2>
-        <fieldset>
-            <div className="form-group">
-                <label htmlFor="searchLetter">First choose a letter</label>
-                <select
+          <div className="form-group">
+            <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+            <DropdownToggle caret className="search-Letter-Dropdown">
+                First choose a letter</DropdownToggle>
+                <DropdownMenu
                     name="searchLetter"
                     id="searchLetterId"
                     className="form-control"
@@ -84,20 +86,20 @@ export const FindWordSearch = () => {
                     key="searchLetterId"
                     required
                     onChange={handleControlledInputChange}>
-                    <option value="0"></option>
+                  <DropdownItem value="0"></DropdownItem>
                     {searchLetters.map((s) => (
-                    <option key={s.id} value={s.name}>
-                      {s.name}
-                    </option>
+                  <DropdownItem key={s.id} value={s.name}>
+                    {s.name}
+                  </DropdownItem>
+            </DropdownMenu>
                   ))}
-                </select>
-            </div>
-            <div>
-                <label>Next, where does that letter occur in the word?</label>
-                <ButtonGroup>
-                  <Button color="info" onClick={() => setRSelected(1), handleRadioButtons()} active={rSelected === 1} >starts with {chosenLetter}</Button>
-                  <Button color="info" onClick={() => setRSelected(2), handleRadioButtons()} active={rSelected === 2}>{chosenLetter} occurs in word</Button>
-                </ButtonGroup>
+          </div>
+          <div>
+            <label>Next, where does that letter occur in the word?</label>
+              <ButtonGroup>
+                <Button color="info" onClick={() => setRSelected(1), handleRadioButtons()} active={rSelected === 1} >starts with {chosenLetter}</Button>
+                <Button color="info" onClick={() => setRSelected(2), handleRadioButtons()} active={rSelected === 2}>{chosenLetter} occurs in word</Button>
+              </ButtonGroup>
             </div>
             <Button
                 className="btn"
@@ -106,8 +108,31 @@ export const FindWordSearch = () => {
                 //Prevents the browser from submitting the form
                 event.preventDefault();
                 handleSearchWordsByFirstLetter()}}>
-        Search</Button>{''}
-        </fieldset>  
-    </form>
-    </>
+                  Search</Button>{''} 
+        </Form>
+      </>
     );}
+
+    {/* /*  const Example = (props) => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggle = () => setDropdownOpen(prevState => !prevState);
+
+  return (
+    <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+      <DropdownToggle caret>
+        Dropdown
+      
+      <DropdownMenu>
+        <DropdownItem header>Header</DropdownItem>
+        <DropdownItem>Some Action</DropdownItem>
+        <DropdownItem text>Dropdown Item Text</DropdownItem>
+        <DropdownItem disabled>Action (disabled)</DropdownItem>
+        <DropdownItem divider />
+        <DropdownItem>Foo Action</DropdownItem>
+        <DropdownItem>Bar Action</DropdownItem>
+        <DropdownItem>Quo Action</DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+  );
+} */ 
