@@ -32,6 +32,7 @@ export const FindWordProvider = (props) => {
     const [searchLetters, setSearchLetters] = useState([]);
     const [chosenLetter, setChosenLetter] = useState("");
     const [libraryWords, setLibraryWords] = useState([]);
+    const currentUser = parseInt(localStorage.getItem("startswithq_user"));
 
     // return array of values used as search terms from permanent state
     const getSearchLetters = () => {
@@ -65,16 +66,13 @@ export const FindWordProvider = (props) => {
       return fetch(`http://localhost:8088/words?_expand=user&_expand=searchLetter`)
         .then(res => res.json())
         .then((words) => {
-        console.log("all user words", words)
-        const filteredWords = words.filter((word) => word.userId === currentUserId)
+          const filteredWords = words.filter((word) => word.userId === currentUserId)
         return setUserWords(filteredWords)
         }
       )
     }
-
-    /* const filteredLibraryWords = filteredWords((filteredWord) => filteredword.searchLetterId) */
-
-    const deleteUserWord = (userWordId, currentUser) => {
+//  delete user-selected word by userWordId in permanent state, call getUserWords passing in current user's id to refresh state
+    const deleteUserWord = (userWordId) => {
       return fetch(`http://localhost:8088/words/${userWordId}`, {
           method:"DELETE"
         })
@@ -96,14 +94,10 @@ export const FindWordProvider = (props) => {
             setUserWords,
             chosenLetter,
             setChosenLetter,
-            deleteUserWord,
-            libraryWords, 
-            setLibraryWords
+            deleteUserWord
 
         }}>
         {props.children}
         </FindWordContext.Provider>
   );
   }
-
-    // https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=26038152-9e3f-4e5b-904e-051cb50e1ae6
