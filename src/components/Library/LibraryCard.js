@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import { FindWordContext } from "../FindWord/FindWordProvider";
+import { Card, CardBody, CardTitle, Button, Row, Col } from 'reactstrap';
 import "./Library.css";
 
 /* This module handles each word displayed in the library list by
@@ -20,15 +21,25 @@ export const LibraryCard = ( {libraryWord} ) => {
 
 
 return (
-    <section className="library">
-        <h3 className="library__word">{libraryWord.word}</h3>
-        <div className="library__btn">
-            <button className="delete__library__word" 
-                onClick={(event) => {
-                handleDeleteWord()}}>
-                    Delete
-            </button>
-        </div>
-    </section>
+    <Row>
+        <Col sm>
+            <Card className="library__card">
+                <CardBody>
+                    <CardTitle className="library__word" tag="h5">{libraryWord.word}</CardTitle>
+                    <Button className="delete__library__word" 
+                        outline color="secondary"
+                        size="sm"
+                        onClick={(event) => {
+                        handleDeleteWord()}}>
+                            Delete
+                    </Button>
+                </CardBody>
+            </Card>
+        </Col>
+    </Row>
+
 )
 }
+
+        
+

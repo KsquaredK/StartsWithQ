@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { useContext } from "react";
 import { FindWordContext } from "./FindWordProvider";
+import { Card, CardBody, CardTitle, Button, Row, Col } from 'reactstrap';
 import "./FindWord.css"
 
 
@@ -45,32 +46,26 @@ export const FindWordList = ()  => {
   /*----- In this case, 3rd party API had no unique id property ---*/
   return (
     <>
-      <h2>Here are your words</h2> 
       <section className="word-list">
-        {words.map((word, index) => {
-        return (
-          <article className="word" 
-            key={index}
-            value={word.word}>
-          <div className="word__detail">
-            { word.word }
-          </div>
-          <button
-            className="word-btn" 
-            onClick={(event, index) => {
-            event.preventDefault();
-            handleSaveUserWord(word);}}>
-            save
-          </button>
-          </article>
-            )
-        }
-        )
-        }    
+      <h2>Here are your words</h2> 
+      <Row>
+        <Col sm>
+          <Card className="word__list__card">
+              {words.map((word, index) => {
+                return (
+                <CardBody className="word" key={index} value={word.word}>
+                  <CardTitle className="word__detail">
+                    { word.word })
+                  </CardTitle>
+                  <Button className="word-btn" onClick={(event, index) => {event.preventDefault()}, handleSaveUserWord(word)}>save</Button>
+                </CardBody>
+                )}
+              )
+            }
+            </Card>
+          </Col>
+      </Row>
       </section>
     </>
   )}
-  /* Redirect to library of saved words: .then(() => history.push(`/library/`)); //${chosenLetter}  */
-
-
   

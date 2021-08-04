@@ -45,7 +45,6 @@ export const FindWordSearch = () => {
           if (chosenLetter) {
             //GET list of words and redirect rendered view to FindWordList
           getWords(chosenLetter)
-          console.log("get words")
           .then(() => history.push(`/words/list`)); //${chosenLetter}
           // } 
         }
@@ -53,17 +52,17 @@ export const FindWordSearch = () => {
       };
     }
 
-      const handleRadioButtons = () => {
-      if (rSelected === 1) {
-        handleSearchWordsByFirstLetter()
-        console.log("first letter")
-        } else {
-          if 
-          (rSelected === 2)
-          console.log("occurs in word") 
-        }
+      // const handleRadioButtons = () => {
+      // if (rSelected === 1) {
+      //   handleSearchWordsByFirstLetter()
+      //   console.log("first letter")
+      //   } else {
+      //     if 
+      //     (rSelected === 2)
+      //     console.log("occurs in word") 
+      //   }
         
-      } 
+      // } 
     
     
       // const handleSearchWordsByHasLetter = (event) => {
@@ -71,14 +70,14 @@ export const FindWordSearch = () => {
       // }
 
     return (
-     <>
-        <Form className="findWordForm">
+    
+      <>
+        <form className="findWordForm">
         <h2 className="findWordForm__title">Find tricky words that use Q, X or Z</h2>
-          <div className="form-group">
-            <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-            <DropdownToggle caret className="search-Letter-Dropdown">
-                First choose a letter</DropdownToggle>
-                <DropdownMenu
+        <fieldset>
+            <div className="form-group">
+                <label htmlFor="searchLetter">First choose a letter</label>
+                <select
                     name="searchLetter"
                     id="searchLetterId"
                     className="form-control"
@@ -86,21 +85,16 @@ export const FindWordSearch = () => {
                     key="searchLetterId"
                     required
                     onChange={handleControlledInputChange}>
-                  <DropdownItem value="0"></DropdownItem>
+                    <option value="0"></option>
                     {searchLetters.map((s) => (
-                  <DropdownItem key={s.id} value={s.name}>
-                    {s.name}
-                  </DropdownItem>
-            </DropdownMenu>
+                    <option key={s.id} value={s.name}>
+                      {s.name}
+                    </option>
                   ))}
-          </div>
-          <div>
-            <label>Next, where does that letter occur in the word?</label>
-              <ButtonGroup>
-                <Button color="info" onClick={() => setRSelected(1), handleRadioButtons()} active={rSelected === 1} >starts with {chosenLetter}</Button>
-                <Button color="info" onClick={() => setRSelected(2), handleRadioButtons()} active={rSelected === 2}>{chosenLetter} occurs in word</Button>
-              </ButtonGroup>
+                </select>
+
             </div>
+        </fieldset>  
             <Button
                 className="btn"
                 color="secondary"
@@ -108,31 +102,9 @@ export const FindWordSearch = () => {
                 //Prevents the browser from submitting the form
                 event.preventDefault();
                 handleSearchWordsByFirstLetter()}}>
-                  Search</Button>{''} 
-        </Form>
-      </>
-    );}
+        Search</Button>{''}
+    </form>
+    </>
+    );;}
 
-    {/* /*  const Example = (props) => {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const toggle = () => setDropdownOpen(prevState => !prevState);
-
-  return (
-    <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-      <DropdownToggle caret>
-        Dropdown
-      
-      <DropdownMenu>
-        <DropdownItem header>Header</DropdownItem>
-        <DropdownItem>Some Action</DropdownItem>
-        <DropdownItem text>Dropdown Item Text</DropdownItem>
-        <DropdownItem disabled>Action (disabled)</DropdownItem>
-        <DropdownItem divider />
-        <DropdownItem>Foo Action</DropdownItem>
-        <DropdownItem>Bar Action</DropdownItem>
-        <DropdownItem>Quo Action</DropdownItem>
-      </DropdownMenu>
-    </Dropdown>
-  );
-} */ 
