@@ -1,13 +1,9 @@
 import React, { useContext } from "react"
-import { useHistory } from "react-router-dom"
 import { FindWordContext } from "../FindWord/FindWordProvider";
 import "./Library.css";
 
 export const LibraryCard = ( {libraryWord, letter} ) => {
-    // const [libraryWords, setLibraryWords] = useState([])
-    const {deleteUserWord, getUserWords} = useContext(FindWordContext)
-    const history = useHistory()
-      
+    const {deleteUserWord} = useContext(FindWordContext)
     const handleDeleteWord = () => {
         console.log("delete", libraryWord.id, libraryWord.word)
         deleteUserWord(libraryWord.id)

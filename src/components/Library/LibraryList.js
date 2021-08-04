@@ -31,36 +31,22 @@ export const LibraryList = () => {
   }, [])
 
 // Second, find searchLetter whose name value matches string in useParams, set to state
-
-/* ========= useEffect #1 runs 2x. First time thru, userWords is undefined [], foundLetter is undefined obj,
-foundLEtter is undefined obj. 2nd time thru, both variables return data objects. ===== */
   useEffect(() => {
       /* match navbar letter to searchLetter.name  */
     const findLetter = searchLetters.find(searchLetter => letter === searchLetter.name)
-    console.log("useEffect #1 - findLetter", findLetter)
     setFoundLetter(findLetter)
-    console.log("useEffect #1.1 - setFoundLetter", findLetter, foundLetter)
   }, [searchLetters, letter])   
 
   // Third, filter user's words in state for words whose search letter foreign key match the found letter id,
   // and set those filtered library words to state, and track changes in state of foundLetter
 
-  /* ========= useEffect #2 runs 3x. 1st and 2nd time thru, userWords is undefined [], foundLetter is undefined obj,
-  libraryWords is undefined []. 3rd time thru, userWords returns data array, foundLetter returns data obj, libraryWords
-  returns data array.  ===== */
   useEffect(() => {
-    console.log("useEffect #2 -- userWords", userWords, "foundletter", foundLetter)
     const libraryWords = userWords.filter(userWord  => {
       return userWord.searchLetterId === foundLetter?.id
     })
-    console.log("useEffect #2.1 -libraryWords", libraryWords)
     setLibraryWords(libraryWords)
     }, [foundLetter, userWords])
   
-  // useEffect(() => {
-  //   getUserWords(currentUser)
-  //   console.log("useEffect #3 - userWords - state change", userWords)
-  // }, [])
 
 
   return (
