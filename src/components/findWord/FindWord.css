@@ -44,9 +44,6 @@ strong {
   font-weight: bold;
 }
 
-address {
-  margin: 0 0 1.5em;
-}
 img {
   max-width: 30%;
   height: auto;
@@ -76,7 +73,7 @@ img {
   }
 
 .form-control {
-  max-width: 10%;
+  max-width: 17%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -112,7 +109,11 @@ section {
   color: #C3B2CB;
 }
 
-/* dropdown {
+.searchLetter {
+  margin: 1em auto;
+  padding: 0 1em 1em;
+  border: .25px solid goldenrod;
+  text-align: center;
+  min-width: 8%;
 
 }
-*/

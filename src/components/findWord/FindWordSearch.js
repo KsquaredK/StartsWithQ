@@ -1,17 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { FindWordContext } from "./FindWordProvider";
-import { Button, ButtonGroup, Form, FormGroup, Dropdown, DropdownMenu, DropdownToggle, DropdownItem } from 'reactstrap';
+import { Button } from 'reactstrap';
 import "./FindWord.css";
 
 
 
 export const FindWordSearch = () => {
     const {searchLetters, getSearchLetters, getWords, chosenLetter, setChosenLetter} = useContext(FindWordContext);
-    const [rSelected, setRSelected] = useState();
-    const [dropdownOpen, setDropdownOpen] = useState(false);
 
-    const toggle = () => setDropdownOpen(prevState => !prevState);
     
     useEffect(() => {
         getSearchLetters();
@@ -42,7 +39,7 @@ export const FindWordSearch = () => {
         } else {
           // disable the button - no extra clicks
         // setIsLoading(true);
-          if (chosenLetter) {
+        if (chosenLetter) {
             //GET list of words and redirect rendered view to FindWordList
           getWords(chosenLetter)
           .then(() => history.push(`/words/list`)); //${chosenLetter}
@@ -51,6 +48,24 @@ export const FindWordSearch = () => {
         console.log("first letter search")
       };
     }
+
+    const handleSearchWordsWithLetter = (event) => {
+    if (
+      chosenLetter === "") {
+      window.alert("Please select a letter");
+  // //else
+    } else {
+      // disable the button - no extra clicks
+    // setIsLoading(true);
+    if (chosenLetter) {
+        //GET list of words and redirect rendered view to FindWordList
+      getWords(chosenLetter)
+      .then(() => history.push(`/words/list`)); //${chosenLetter}
+      // } 
+    }
+    console.log("first letter search")
+  };
+}
 
       // const handleRadioButtons = () => {
       // if (rSelected === 1) {
@@ -85,7 +100,7 @@ export const FindWordSearch = () => {
                     key="searchLetterId"
                     required
                     onChange={handleControlledInputChange}>
-                    <option value="0"></option>
+                    <option className="dropdown-label" value="0">First choose a letter</option>
                     {searchLetters.map((s) => (
                     <option key={s.id} value={s.name}>
                       {s.name}
@@ -95,6 +110,9 @@ export const FindWordSearch = () => {
 
             </div>
         </fieldset>  
+        <p></p>
+        <label htmlFor="word-search">Then find your words!</label>
+        <p></p>
             <Button
                 className="btn"
                 color="secondary"
@@ -102,9 +120,18 @@ export const FindWordSearch = () => {
                 //Prevents the browser from submitting the form
                 event.preventDefault();
                 handleSearchWordsByFirstLetter()}}>
-        Search</Button>{''}
+        starts with {chosenLetter}</Button>{''}
+                <label htmlFor="search-or"> or </label>
+        <Button
+                className="btn"
+                color="secondary"
+                onClick={(event) => {
+                //Prevents the browser from submitting the form
+                event.preventDefault();
+                handleSearchWordsWithLetter()}}>
+        has {chosenLetter} in it</Button>{''}
     </form>
     </>
-    );;}
+    );}
 
 
