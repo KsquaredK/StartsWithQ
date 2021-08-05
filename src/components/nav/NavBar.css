@@ -1,13 +1,31 @@
 .navbar {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: left;
+    padding-left: 5em;
+    background-color: #7C5E82;
+    font-family: 'Raleway', sans-serif;
 }
 
-.navbar__item {
-    flex-basis: 20%;
-    list-style-type: none;
+
+/* .navbar-brand {
+    display: flex;
+    align-items: center;
+  } */
+
+a.title.navbar-brand {
+    color: white;
 }
-.container {
-    background-color: E6E7BB;
+
+.nav-item {
+    color: white;
 }
+
+.navbar-text {
+    margin-left: 10rem;
+    color: #DDDE9D ;
+}
+
+.navbar-text.motto {
+    color: #DDDE9D;
+}
+
+/*  #7C5E82 dark purple
+    ##B9A5C3ff orig navbar purple */

@@ -13,7 +13,7 @@ Black Chocolate: 161608
 ________________________________*/
 
 body,
-button,
+/* button, */
 input,
 select,
 textarea {
@@ -21,6 +21,7 @@ textarea {
   font-family: "Comfortaa", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.5; 
+  background-color: #E6E7BB;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -30,6 +31,12 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
+h6.search-descrip {
+  margin: 0 30rem 0 13.5rem;
+  text-align: left;
+  padding: .5rem;
+}
+
 p {
   margin-bottom: 1.5em;
   color: #d6fcff;
@@ -37,7 +44,7 @@ p {
 }
 
 article {
-  background-color: #EAEBC5;
+  background-color: #E6E7BB;
 }
 
 strong {
@@ -48,8 +55,13 @@ img {
   max-width: 30%;
   height: auto;
   display: block;
-  margin-left: auto;
+  margin-left: 13.5rem;
   margin-right: auto;
+}
+
+label {
+  padding-left: 2em;
+  padding-right: 2em;
 }
 /* .findWordForm {
   {
@@ -57,8 +69,9 @@ img {
     flex-direction: column;
   }
 } */
-.subHeader {
-  text-align: center
+header {
+  text-align: center;
+  padding: 2em;
 }
 .findWordForm {
   text-align: center;
@@ -66,21 +79,27 @@ img {
   margin-right: auto;
 }
 
-.form-group{
-    max-width: 25%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
 .form-control {
-  max-width: 17%;
+  min-width: 20%;
+  max-width: 22%;
   margin-left: auto;
   margin-right: auto;
 }
 
-.btn {
+
+#searchLetterId {
+  min-width: 25%;
+  max-width: 30;
   text-align: center;
+  background-color: #7C5E82 ;
+  border: .15px solid white;
+  color: white;
+  margin: 0 30rem 0 13.5rem;
 }
+
+/* .btn {
+  text-align: center;
+} */
 
 section {
   display: flex;
@@ -89,11 +108,16 @@ section {
 }
 
 .word {
-    flex-basis: 35%;
-    margin: 1em;
-    padding: 1em;
-    border: .25px solid goldenrod;
+  flex-basis: 35%;
+  margin: 1em;
+  padding: 1em;
+  border: .25px solid goldenrod;
 }
+
+/* .word-btn {
+  text-align: center;
+  color: #C3B2CB;
+}   */
 
 .word-detail {
   display: flex;
@@ -104,16 +128,15 @@ section {
   max-width: 28%;
 }
 
-.word-btn {
-  text-align: center;
-  color: #C3B2CB;
+button.btn.btn-secondary {
+  background-color: #7C5E82;
+  border: .15px solid white;
+  margin: 0 63rem 0 13.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-.searchLetter {
-  margin: 1em auto;
-  padding: 0 1em 1em;
-  border: .25px solid goldenrod;
-  text-align: center;
-  min-width: 8%;
-
+.dropdown-label {
+  margin: 5rem 0 50rem 0;
 }
+

@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { FindWordContext } from "./FindWordProvider";
 import { Button } from 'reactstrap';
 import "./FindWord.css";
+import logo from "../auth/Qlogo.png";
 
 
 
@@ -87,32 +88,35 @@ export const FindWordSearch = () => {
     return (
     
       <>
+        <header>     
+          <div className="header">
+            <img src={logo} alt="Starts With Q logo" />
+          </div>
+        </header>
         <form className="findWordForm">
-        <h2 className="findWordForm__title">Find tricky words that use Q, X or Z</h2>
-        <fieldset>
-            <div className="form-group">
-                <label htmlFor="searchLetter">First choose a letter</label>
-                <select
-                    name="searchLetter"
-                    id="searchLetterId"
-                    className="form-control"
-                    value={searchLetters.id}
-                    key="searchLetterId"
-                    required
-                    onChange={handleControlledInputChange}>
-                    <option className="dropdown-label" value="0">First choose a letter</option>
-                    {searchLetters.map((s) => (
-                    <option key={s.id} value={s.name}>
-                      {s.name}
-                    </option>
-                  ))}
-                </select>
+          <h6 className="search-descrip">Find tricky words that use Q, X or Z</h6>
+          <fieldset>
+              <div className="form-group">
+                  <select
+                      name="searchLetter"
+                      id="searchLetterId"
+                      className="form-control"
+                      value={searchLetters.id}
+                      key="searchLetterId"
+                      required
+                      onChange={handleControlledInputChange}>
+                      <option className="dropdown-label" value="0"> first choose a letter </option>
+                      {searchLetters.map((s) => (
+                      <option className="dropdown-label" key={s.id} value={s.name}>
+                        {s.name}
+                      </option>
+                    ))}
+                  </select>
+                  <p></p>  
 
-            </div>
-        </fieldset>  
-        <p></p>
-        <label htmlFor="word-search">Then find your words!</label>
-        <p></p>
+              </div>
+          </fieldset>  
+          
             <Button
                 className="btn"
                 color="secondary"
@@ -120,18 +124,26 @@ export const FindWordSearch = () => {
                 //Prevents the browser from submitting the form
                 event.preventDefault();
                 handleSearchWordsByFirstLetter()}}>
-        starts with {chosenLetter}</Button>{''}
-                <label htmlFor="search-or"> or </label>
-        <Button
+                  search</Button>{''}
+             
+    </form>
+    </>
+    );}
+
+    /*
+    <p></p>
+            <label htmlFor="word-search">Then find your words!</label>
+          <p></p>    
+    
+    <label htmlFor="search-or">or</label>
+            <Button
                 className="btn"
                 color="secondary"
                 onClick={(event) => {
                 //Prevents the browser from submitting the form
                 event.preventDefault();
                 handleSearchWordsWithLetter()}}>
-        has {chosenLetter} in it</Button>{''}
-    </form>
-    </>
-    );}
+                  has {chosenLetter} in it
+            </Button>{''} */
 
 
