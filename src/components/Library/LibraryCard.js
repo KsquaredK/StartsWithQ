@@ -9,7 +9,7 @@ import "./Library.css";
     • invokes the deleteUserWord function exposed in the provider,
       passing in the argument of the selected word's id.*/
 
-export const LibraryCard = ( {libraryWord} ) => {
+export const LibraryCard = ( {libraryWord, letter} ) => {
     const {deleteUserWord} = useContext(FindWordContext)
     const handleDeleteWord = () => {
         console.log("delete", libraryWord.id, libraryWord.word)
@@ -18,23 +18,16 @@ export const LibraryCard = ( {libraryWord} ) => {
 
 
 return (
-    <Row>
-        <Col sm>
-            <Card className="library__card">
-                <CardBody>
-                    <CardTitle className="library__word" tag="h5">{libraryWord.word}</CardTitle>
-                    <Button className="delete__library__word" 
-                        outline color="secondary"
-                        size="sm"
-                        onClick={(event) => {
-                        handleDeleteWord()}}>
-                            Delete
-                    </Button>
-                </CardBody>
-            </Card>
-        </Col>
-    </Row>
-
+    <section className="library">
+         <h3 className="library__word">{libraryWord.word}</h3>
+        <div className="library__btn">
+            <button className="delete__library__word" 
+                onClick = {
+                handleDeleteWord}>
+                Delete
+            </button>
+        </div>
+    </section>
 )
 }
 
