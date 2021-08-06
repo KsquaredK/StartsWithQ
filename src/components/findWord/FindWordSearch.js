@@ -17,9 +17,6 @@ export const FindWordSearch = () => {
       }, []);
       console.log(searchLetters);
 
-      // const searchLetterId = searchLetters.id
-      // const [isLoading, setIsLoading] = useState(true); //??
-
       const history = useHistory();
 
       //the controlled input is a user clicking an option in the dropdown
@@ -28,8 +25,8 @@ export const FindWordSearch = () => {
       const handleControlledInputChange = (event) => {
         const userSelection = event.target.value;
         setChosenLetter(userSelection);
-        console.log(chosenLetter)
       };
+
 
       // this function runs when user hits submit button. if no dropdown option was chosen, show window alert
       const handleSearchWordsByFirstLetter = (event) => {
@@ -46,44 +43,9 @@ export const FindWordSearch = () => {
           .then(() => history.push(`/words/list`)); //${chosenLetter}
           // } 
         }
-        console.log("first letter search")
+        console.log(chosenLetter)
       };
     }
-
-    const handleSearchWordsWithLetter = (event) => {
-    if (
-      chosenLetter === "") {
-      window.alert("Please select a letter");
-  // //else
-    } else {
-      // disable the button - no extra clicks
-    // setIsLoading(true);
-    if (chosenLetter) {
-        //GET list of words and redirect rendered view to FindWordList
-      getWords(chosenLetter)
-      .then(() => history.push(`/words/list`)); //${chosenLetter}
-      // } 
-    }
-    console.log("first letter search")
-  };
-}
-
-      // const handleRadioButtons = () => {
-      // if (rSelected === 1) {
-      //   handleSearchWordsByFirstLetter()
-      //   console.log("first letter")
-      //   } else {
-      //     if 
-      //     (rSelected === 2)
-      //     console.log("occurs in word") 
-      //   }
-        
-      // } 
-    
-    
-      // const handleSearchWordsByHasLetter = (event) => {
-      //   if (chosenLetter && )
-      // }
 
     return (
     
@@ -145,5 +107,47 @@ export const FindWordSearch = () => {
                 handleSearchWordsWithLetter()}}>
                   has {chosenLetter} in it
             </Button>{''} */
+
+ /* ======= FROM REACTSTRAP =================
+ import React, { useState } from 'react';
+import { Button, ButtonGroup } from 'reactstrap';
+
+const Example = (props) => {
+  const [cSelected, setCSelected] = useState([]);
+  const [rSelected, setRSelected] = useState(null);
+
+  const onCheckboxBtnClick = (selected) => {
+    const index = cSelected.indexOf(selected);
+    if (index < 0) {
+      cSelected.push(selected);
+    } else {
+      cSelected.splice(index, 1);
+    }
+    setCSelected([...cSelected]);
+  }
+  return (
+    <div>
+      <h5>Radio Buttons</h5>
+      <ButtonGroup>
+        <Button color="primary" onClick={() => setRSelected(1)} active={rSelected === 1}>One</Button>
+        <Button color="primary" onClick={() => setRSelected(2)} active={rSelected === 2}>Two</Button>
+        <Button color="primary" onClick={() => setRSelected(3)} active={rSelected === 3}>Three</Button>
+      </ButtonGroup>
+      <p>Selected: {rSelected}</p>
+
+      <h5>Checkbox Buttons</h5>
+      <ButtonGroup>
+        <Button color="primary" onClick={() => onCheckboxBtnClick(1)} active={cSelected.includes(1)}>One</Button>
+        <Button color="primary" onClick={() => onCheckboxBtnClick(2)} active={cSelected.includes(2)}>Two</Button>
+        <Button color="primary" onClick={() => onCheckboxBtnClick(3)} active={cSelected.includes(3)}>Three</Button>
+      </ButtonGroup>
+      <p>Selected: {JSON.stringify(cSelected)}</p>
+    </div>
+  );
+}
+
+export default Example;
+  */
+
 
 

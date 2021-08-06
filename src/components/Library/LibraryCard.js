@@ -11,12 +11,9 @@ import "./Library.css";
 
 export const LibraryCard = ( {libraryWord} ) => {
     const {deleteUserWord} = useContext(FindWordContext)
-      
     const handleDeleteWord = () => {
-        deleteUserWord(libraryWord.id)
-        .then(() => {
         console.log("delete", libraryWord.id, libraryWord.word)
-        })
+        deleteUserWord(libraryWord.id)
     };
 
 
