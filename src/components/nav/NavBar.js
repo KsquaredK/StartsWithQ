@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, NavbarText } from 'reactstrap';
 import "./NavBar.css"
-import logo from "../assets/logo.png"
 
 export const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,7 +44,6 @@ export const NavBar = (props) => {
 
 
 
-{/* <div class= "navigation__item navigation__icon"> <img id= "logo" src= "./Qlogo-thumb.png" alt= "logo"/></div> */}
 
 
 
