@@ -1,13 +1,15 @@
 import React, { useContext } from "react"
-import { useHistory } from "react-router-dom"
 import { FindWordContext } from "../FindWord/FindWordProvider";
 import "./Library.css";
 
+/* This module handles each word displayed in the library list by
+    • displaying and assigning attributes to the word, and
+    • rendering a delete button which, on click,
+    • invokes the deleteUserWord function exposed in the provider,
+      passing in the argument of the selected word's id.*/
+
 export const LibraryCard = ( {libraryWord, letter} ) => {
-    // const [libraryWords, setLibraryWords] = useState([])
-    const {deleteUserWord, getUserWords} = useContext(FindWordContext)
-    const history = useHistory()
-      
+    const {deleteUserWord} = useContext(FindWordContext)
     const handleDeleteWord = () => {
         console.log("delete", libraryWord.id, libraryWord.word)
         deleteUserWord(libraryWord.id)
@@ -15,15 +17,18 @@ export const LibraryCard = ( {libraryWord, letter} ) => {
 
 
 return (
-    <section className="library">
-        <h3 className="library__word">{libraryWord.word}</h3>
-        <div className="library__btn">
-            <button className="delete__library__word" 
+    <section className="library-card">
+         <h3 className="library-word">{libraryWord.word}</h3>
+        <div className="library-btn">
+            <button className="delete-library-word" 
                 onClick = {
                 handleDeleteWord}>
-                    Delete
+                Delete
             </button>
         </div>
     </section>
 )
 }
+
+        
+

@@ -1,0 +1,69 @@
+h2 {
+  padding: 1.5em 0 0 0;
+  font-family: 'Stint Ultra Expanded', cursive; 
+}
+
+section {
+  color: black;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+}
+
+.library-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+.library-card {
+  margin: 1rem;
+  box-shadow: rgb(128 128 128 / 19%) 0.25rem 0.35rem;
+  flex-basis: 28%;
+  margin: 1em;
+  padding: 1em;
+  background-color: #F9D7A4;
+
+}
+
+.library-word {
+  margin: 0rem 1rem 0rem 1rem;
+  color: black;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+}
+
+.card-body {
+  display: flex;
+}
+
+.card-title {
+  padding: 0rem 0rem 1rem 0rem;
+} 
+
+.library-btn {
+}
+
+.delete-library-word {
+  margin: 1rem;
+  box-shadow: rgb(128 128 128 / 12%) 0.1rem 0.1rem;
+  flex-basis: 15%;
+  margin: 1em;
+  padding: 1em;
+  background-color: #B9A5C3ff;
+  border: none;
+  font-size: x-small;
+}
+
+.delete-library-word:hover {
+  background-color: #7C5E82;
+  color: #F7E4C6;
+}
+
+
+
+  
+ /* .animal {
+      
+      border: 1px solid goldenrod;
+  } */

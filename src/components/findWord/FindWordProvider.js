@@ -1,33 +1,7 @@
 import React, { useState, createContext } from "react";
 
-/* ========= PSEUDOCODE FOR COMPONENT =========
-• FW Search: fetch search letters, map them to a dropdown menu, save user's selection (a variable
-  capturing a string of the letter name) to state, redirect to search results view
-
-    -Stretch: toggle whether searching for "starts with" or "occurs in word"
-
-    -Stretch: optional second dropdown that lets you choose search letter's position in word
-
-• FW List: render search results view by mappping though words in FindWordContext. When user
-  clicks save by a listed word, use find method to find searchLetter object whose name matches
-  chosenLetter in state.  Clear mutable state (unsaved search results) upon navigating to new component, with a save button
-  that saves an object with the word, word id, user id, search letter id and timestamp
-  to the db
-
-  - Stretch: Clear results button that redirects to search view, and clears mutable state
-
-• FW Provider:
-    searchLetters, getSearchLetters, setSearchLetters,
-    chosenLetter, setChosenLetter,
-    words, getWords, setWords,
-    userWord, setUserWords, addUserWords, getUserWords, deleteUserWord
-/ ============================================= */
-
 export const FindWordContext = createContext();
 
-// This component establishes what data can be used.
-// words is an empty array, setWords is a function that modifies it.
-// useState will hold and set the array of words.
 export const FindWordProvider = (props) => {
     const [words, setWords] = useState([]);
     const [userWords, setUserWords] = useState([]);
@@ -41,15 +15,13 @@ export const FindWordProvider = (props) => {
       .then(res => res.json())
       .then(setSearchLetters)
     }
+
   // return array of objects (words filtered by search terms) from 3rd party api
     const getWords = (letter) => {
       return fetch(`https://api.datamuse.com/words?sp=${letter}*&max=400`)
       .then(res => res.json())
       .then(setWords)
   }
-
-  // return fetch(`https://api.datamuse.com/words?sp=*${letter.replace(/"/g,"")}`)
-  //  return fetch(`https://api.datamuse.com/words?sp=??${letter.replace(/"/g,"")}?????`)
 
   // post data object selected by user input to permanent state, return updated array of user selections
     const addUserWord = (userWord) => {
@@ -60,7 +32,7 @@ export const FindWordProvider = (props) => {
         },
         body: JSON.stringify(userWord),
       })
-    }
+    };
 
 //  get data saved by user id in permanent state, store as current state
     const getUserWords = (currentUserId) => {
@@ -68,22 +40,18 @@ export const FindWordProvider = (props) => {
         .then(res => res.json())
         // .then(setRefresh(false))
         .then((words) => {
-          debugger
           const filteredWords = words.filter((word) => word.userId === currentUserId)
-          console.log("all filteredWords", filteredWords)
         return setUserWords(filteredWords)
         }
       )
-    }
-
-    /* const filteredLibraryWords = filteredWords((filteredWord) => filteredword.searchLetterId) */
-
+    };
+//  delete user-selected word by userWordId in permanent state, call getUserWords passing in current user's id to refresh state
     const deleteUserWord = (userWordId) => {
       return fetch(`http://localhost:8088/words/${userWordId}`, {
           method:"DELETE"
         })
         .then(() => getUserWords(currentUser))
-    }
+    };
 
     return (
         <FindWordContext.Provider
@@ -101,13 +69,8 @@ export const FindWordProvider = (props) => {
             chosenLetter,
             setChosenLetter,
             deleteUserWord
-            // refresh,
-            // setRefresh
-
         }}>
         {props.children}
         </FindWordContext.Provider>
   );
   }
-
-    // https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=26038152-9e3f-4e5b-904e-051cb50e1ae6

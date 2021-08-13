@@ -6,19 +6,12 @@
  import { FindWordProvider } from "./FindWord/FindWordProvider";
  import { LibraryList } from "./Library/LibraryList";
  import { UserProvider } from "./user/UserProvider"; 
- import logo from "./auth/Qlogo.png";
 
 
 
 export const ApplicationViews = () => {
   return (
     <>
-      <Route exact path="/">
-        <div className="header">
-          <img src={logo} alt="Starts With Q logo" />
-        </div>
-      </Route>
-      
       <FindWordProvider>
         <UserProvider>
 

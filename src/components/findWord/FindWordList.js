@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { useContext } from "react";
 import { FindWordContext } from "./FindWordProvider";
+// import { Card, CardBody, CardTitle, Button, Row, Col } from 'reactstrap';
 import "./FindWord.css"
 
 
@@ -11,9 +12,14 @@ export const FindWordList = ()  => {
   const [userWordChoice, setUserWordChoice] = useState({})
   const currentUserId = parseInt(localStorage.getItem("startswithq_user"));
   console.log(currentUserId)
-  
 
-   
+//   const removePhrases = () => {
+//   const pattern = " "
+//   const  unfilteredWords = [...words]
+//   filtered = unfilteredWords.filter(function (str) 
+//   { return str.includes(pattern); }) 
+
+// }
   //  *--------- user input to save one or more words in list to local db ---*
   // If the word to be saved has a chosenLetter matching the name of
   // one of the searchletters, create a new object with these properties,
@@ -43,6 +49,7 @@ export const FindWordList = ()  => {
   /*----- Note: map function below calls second argument, --------*/
   /*-----"index", which adds a numeric identifier to array elements---*
   /*----- In this case, 3rd party API had no unique id property ---*/
+
   return (
     <>
       <h2>Here are your words</h2> 
@@ -70,7 +77,5 @@ export const FindWordList = ()  => {
       </section>
     </>
   )}
-  /* Redirect to library of saved words: .then(() => history.push(`/library/`)); //${chosenLetter}  */
-
 
   

@@ -5,6 +5,7 @@ import { NavBar } from "./nav/NavBar";
 import { FindWordProvider } from "./FindWord/FindWordProvider"
 import { Login } from "./auth/login";
 import { Register } from "./auth/register";
+import Footer from "./nav/Footer.js"
 import "./StartsWithQ.css";
 
 /* +++++++ PSEUDO-CODE ++++++++  
@@ -24,6 +25,7 @@ export const StartsWithQ = () => (
             <>
               <NavBar />
               <ApplicationViews />
+              <Footer />
             </>
           );
         } else {
@@ -48,5 +50,5 @@ export const StartsWithQ = () => (
 // If the item is there, the user is authenticated and the application renders.
 // If the item is not there, render the Login form instead.
 // When the user fills out the form and clicks the submit button, query the API to see if a user with the specified email already exists.
-// If the user already exists, set the startswithq_user_customer item in local storage, and display the Dashboard.
-// If the user does not exist, alert that fact to the user.
+// If the user already exists, ref the startswithq_user_customer item in local storage as current user id, and display Starts With Q.
+// If the user does not exist, alert user, and redirect to register page..

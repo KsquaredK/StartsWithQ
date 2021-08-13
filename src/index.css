@@ -1,3 +1,22 @@
+/* ===Starts With Q Palette ===
+
+#B9A5C3ff logo purple
+#C3B2CB bg purple
+#C2BCD3 in-between purple
+#A8ACD1 deep purple
+#7C5E82 navbar purple
+#F7E4C6 pale orange
+#F9D7A4 dreamsicle
+#DDDE9D chartreuse
+#B3D4C4 dusty bluegreen
+#B7D8DA dusty aqua
+#F4F8EA pale background green
+##FBFDF8 offwhite(green) background
+
+*/
+
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +24,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #FFF;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+

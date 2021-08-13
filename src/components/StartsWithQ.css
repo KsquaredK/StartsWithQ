@@ -1,5 +1,5 @@
 /* Import the google web fonts you want to use */
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;1,900&family=Stint+Ultra+Expanded&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;1,900&family=Stint+Ultra+Expanded&display=swap');
 /*Typography
 --------------------------------------------------------------*/
 body,
@@ -13,17 +13,42 @@ textarea {
   line-height: 1.5;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Raleway', sans-serif;
-    font-family: 'Stint Ultra Expanded', cursive;    
+
+body {
+  height: 100%;
+  min-height: 100%;
+}
+
+h1 {
+    font-family: 'Raleway', sans-serif;  
     letter-spacing: 2px;
 }
 
-p {
+h2, h3, h4, h5, h6 {
+  font-family: 'Stint Ultra Expanded', cursive;    
+  letter-spacing: 2px;
+  margin: 0 15rem 0 10rem;
+}
+
+.footer {
+  clear: both;
+  background-color: #fff;
+  position: relative;
+  font-size: small;
+  letter-spacing: 2px;
+  height: 12px;
+  margin-top: -12px;
+  width: 100%;
+  color: #333333;
+  align-items: center;
+  margin-left: 15%;
+}
+
+/* p {
   margin-bottom: 1.5em;
   color: #d6fcff;
   color: darkslateblue;
-}
+} */
 
 strong {
   font-weight: bold;
@@ -33,7 +58,11 @@ address {
   margin: 0 0 1.5em;
 }
 
-logo {
+img {
+  margin: 0 35rem 0 12rem;
+}
+
+/* logo {
     background-position-x: right;
     background-image: url("./auth/Qlogo.png");
     background-size: 12%;
@@ -43,4 +72,4 @@ logo {
     background-color: hsla(0,0%,100%,0.40);
     background-blend-mode: overlay;
     background-repeat: no-repeat;
-}
+} */

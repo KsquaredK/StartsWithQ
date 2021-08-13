@@ -1,78 +1,78 @@
+html, body {
+  height: 100%;
+  background-color: #FFF;
+}
+
 .h1, h1 {
     font-size: 2.5rem;
 }
 
-fieldset {
-    min-width: 0;
-    padding: 1rem 0;
-    margin: 0;
-    border: 0;
+.login-register {
+    flex-basis: 2%;
+    margin-right: 35%
 }
 
-.form--login {
-    display: inline-block;
-    margin: 6rem auto;
-    text-align: center;
+main {
+  background-color: #FFF;
+  display: flex;
+
 }
 
-.form--login > fieldset > input[type="email"] {
-    /* width: 30%; */
+.login-email {
+    width: 32%;
+    margin-left: 20rem;
 }
 
-.label--login {
-    width: 15rem;
-    display: inline-block;
+.login-container {
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
+.login-header {
+    flex-basis: 15%;
+    margin-left: 10rem;
+    margin-top: 3rem;
+}
+
+.login-form {
+    flex-basis: 15%;
+    margin-right: 19%
+}
+
+.login-submit {
+    margin-left: 27rem;
+    margin-top: .5rem;
+    margin-left: 28rem;
+    background-color: #B9A5C3;
+    border: none;
+    box-shadow: rgb(128 128 128 / 10%) 0.1rem 0.1rem;
+}
+
+.login-submit:hover {
+    background-color: #A8ACD1;
+    color: #FFF;
+  }
 
 .form-control {
-    display: block;
-    /* width: 25rem; */
-    height: calc(1.5em + .75rem + 2px);
-    padding: .5rem 2rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
+    display: flex;
+    align-self: center;
     background-clip: padding-box;
-    border: 1px solid #ced4da;
+    border: .5px solid #F4F8EA;
     border-radius: .25rem;
-    -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    -webkit-transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-.container--login {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: space-between;
-    /* text-align: center; */
-}
 
-.form--login {
-    background-position-x: bottom;
-    background-image: url("./Qlogo.png");
-    background-size: 20%;
-    z-index: 1;
-    min-height: 25rem;
-    min-width: 45rem;
-    background-color: hsla(0,0%,100%,0.40);
-    background-blend-mode: overlay;
-    background-repeat: no-repeat;
-}
-
-.button--close {
+ .button--close {
     position: relative;
     bottom: -2rem;
-}
+} 
 
 .dialog {
     min-width: 15rem;
     min-height: 5rem;
-}
-.register {
-    text-align: center;
-}
-
-a {
-    text-align: center;
-}
+} 
+ 
