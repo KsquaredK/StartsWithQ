@@ -7,9 +7,9 @@ Future versions will permit searching for words which contain q, x, or z, and se
 
 ## Using this app
 
-• Fork this project (upper right corner) or clone it (green 'Code' button) at https://github.com/KsquaredK/StartsWithQ/
+• Fork this project (upper right corner in this github repo) or clone it (green 'Code' button) at https://github.com/KsquaredK/StartsWithQ/
 
-• In the terminal, navigate to the project directory, and run: `npm start`, open [http://localhost:3000](http://localhost:3000) to view it in the browser
+• In the terminal, navigate to the project directory, and run: `npm start`, then open [http://localhost:3000](http://localhost:3000) to view in the browser
 
 • Clone or fork dummy data for this app at https://github.com/KsquaredK/StartsWithQ-API 
 
