@@ -1,6 +1,3 @@
-
-•	Link to or insert an image (or both) of your Wireframe
-
 #README
 
 # Starts With Q (v. 1.0)
@@ -30,4 +27,4 @@ On Sketchboard: https://sketchboard.me/PCEnKMysdbYx
 
 
 ## Tech used
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), and built with Javascript, React, ReactStrap, HTML5, CSS3, JSON Server, and npm.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), and built with Javascript, React, ReactStrap, HTML5, CSS3, using JSON Server and npm.
