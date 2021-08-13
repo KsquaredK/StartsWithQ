@@ -1,70 +1,30 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+•	Link to or insert an image (or both) of your Wireframe
+![image](https://user-images.githubusercontent.com/39713451/129374589-8092edeb-b49c-47a6-a2fb-83f03afdedfb.png)
 
-## Available Scripts
+#README
 
-In the project directory, you can run:
+# Starts With Q (v. 1.0)
 
-### `npm start`
+This web app makes it easy for word game players to find and study obscure dictionary words they need in a pinch. Search for dictionary words that start with q, x, or z, and save them to private libraries for study purposes.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Future versions will permit searching for words containing these three letters, and searching by length of word and which position search letter occurs in word. Users will be able to sort their libraries alphabetically, by date saved, and by word length.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Using this app
 
-### `npm test`
+• Fork this project (upper right corner) or clone it (green 'Code' button) at https://github.com/KsquaredK/StartsWithQ/
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+• In the terminal, navigate to the project directory, and run: `npm start`, open [http://localhost:3000](http://localhost:3000) to view it in the browser
 
-### `npm run build`
+• Clone or fork dummy data for this app at https://github.com/KsquaredK/StartsWithQ-API 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### ERD
+![image](assets/ERD_StartsWithQ.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+On dbdiagram: https://dbdiagram.io/d/60c797390c1ff875fcd4c914
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Tech used
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), and built with Javascript, React, ReactStrap, HTML5, CSS3, JSON Server, and npm.
