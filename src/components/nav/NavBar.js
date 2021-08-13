@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, NavbarText } from 'reactstrap';
 import "./NavBar.css"
+// import logo from "../assets/logo.png";
+
 
 export const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +14,7 @@ export const NavBar = (props) => {
 }
 
   return (
-    <div>
+    <div className="top-nav"> 
       <Navbar color="#C3B2CB" light expand="md">
         <NavbarBrand className="title" href="/">Starts With Q</NavbarBrand>  
         <NavbarToggler onClick={toggle} />
@@ -43,6 +45,9 @@ export const NavBar = (props) => {
 
 
 
+      // <div className="nav-logo">
+      //       <img src={logo} alt="Starts With Q thumbnail logo" width="5%" height="5%" />
+      //     </div>
 
 
 

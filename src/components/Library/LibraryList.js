@@ -49,10 +49,10 @@ export const LibraryList = () => {
 
   return (
     <>
-      <h1>
+      <h2>
         {headerLetter} Library
-      </h1>
-      <section>
+      </h2>
+      <section className="library-list">
         {libraryWords.map(libraryWord => {
           return (
             <LibraryCard key={libraryWord.id} libraryWord={libraryWord} letter={letter}/>

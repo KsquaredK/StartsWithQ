@@ -21,7 +21,8 @@ textarea {
   font-family: "Comfortaa", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.5; 
-  background-color: #E6E7BB;
+  /* background-color: #E6E7BB; */
+  background-color: #FFF;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -32,19 +33,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h6.search-descrip {
-  margin: 0 30rem 0 13.5rem;
+  margin: 0 30rem 4rem 13.5rem;
   text-align: left;
   padding: .5rem;
 }
 
 p {
-  margin-bottom: 1.5em;
-  color: #d6fcff;
+  margin-bottom: 1em;
+  /* color: #d6fcff; */
   color: darkslateblue;
 }
 
 article {
-  background-color: #E6E7BB;
+  /* background-color: #E6E7BB; */
+  background-color: #FFFFFF;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 strong {
@@ -52,7 +57,7 @@ strong {
 }
 
 img {
-  max-width: 30%;
+  max-width: 20%;
   height: auto;
   display: block;
   margin-left: 13.5rem;
@@ -71,8 +76,9 @@ label {
 } */
 header {
   text-align: center;
-  padding: 2em;
+  padding: 2em 2em 0 2em;
 }
+
 .findWordForm {
   text-align: center;
   margin-left: auto;
@@ -80,21 +86,24 @@ header {
 }
 
 .form-control {
-  min-width: 20%;
-  max-width: 22%;
   margin-left: auto;
   margin-right: auto;
 }
 
 
 #searchLetterId {
-  min-width: 25%;
-  max-width: 30;
+  min-width: 10%;
+  max-width: 13%;
   text-align: center;
   background-color: #7C5E82 ;
-  border: .15px solid white;
+  box-shadow: rgb(128 128 128 / 10%) 0.1rem 0.1rem;
   color: white;
   margin: 0 30rem 0 13.5rem;
+}
+
+#searchLetterId:hover {
+  background-color: #A8ACD1;
+  color: #FFF;
 }
 
 /* .btn {
@@ -103,15 +112,26 @@ header {
 
 section {
   display: flex;
-  flex-flow: row wrap;
+  /* flex-flow: row wrap; */
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .word {
-  flex-basis: 35%;
+  flex-basis: 30%;
+  margin: 1rem;
+  box-shadow: rgb(128 128 128 / 19%) 0.25rem 0.35rem;
   margin: 1em;
   padding: 1em;
-  border: .25px solid goldenrod;
+  background-color: #F9D7A4;
+  text-align: center;
+  max-width: 28%;
+}
+
+.word-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 /* .word-btn {
@@ -123,20 +143,75 @@ section {
   display: flex;
   margin: 4em auto;
   padding: 0 2em 2em;
-  border: .25px solid goldenrod;
-  text-align: center;
-  max-width: 28%;
+
+}
+
+.word-btn {
+  background-color: #CDDE9D;
+  box-shadow: rgb(128 128 128 / 10%) 0.1rem 0.1rem;
+  border: none;
+  /* margin: 0 66rem 0 13.5rem; */
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.word-btn:hover {
+  background-color: #7C5E82;
+  color: #FFF;
+}
+
+.word-btn:active {
+  background-color: #C3B2CB;
+  box-shadow: 0 5px #FFF;
+  transform: translateY(3px);
 }
 
 button.btn.btn-secondary {
   background-color: #7C5E82;
-  border: .15px solid white;
-  margin: 0 63rem 0 13.5rem;
+  box-shadow: rgb(128 128 128 / 10%) 0.1rem 0.1rem;
+  margin: 0 63rem 2rem 13.5rem;
   padding-left: 1rem;
   padding-right: 1rem;
+  margin-bottom: 18rem;
+}
+
+button.btn.btn-secondary:hover {
+    background-color: #A8ACD1;
+    color: #FFF;
+}
+
+button.save-btn {
+  box-shadow: rgb(128 128 128 / 10%) 0.1rem 0.1rem;
+  border: none;
+  font-size: x-small;
+  background-color: #C2BCD3;
+  flex-basis: 28%;
+}
+
+button.save-btn:hover {
+  background-color: #A8ACD1;
+  color: #FFF;
 }
 
 .dropdown-label {
   margin: 5rem 0 50rem 0;
 }
+
+
+/*
+  margin: 1rem;
+  box-shadow: rgb(128 128 128 / 19%) 0.25rem 0.35rem;
+  flex-basis: 28%;
+  margin: 1em;
+  padding: 1em;
+  background-color: #F9D7A4;
+
+
+
+
+  
+  border: .25px solid goldenrod;
+  */
+
+
 

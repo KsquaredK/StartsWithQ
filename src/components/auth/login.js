@@ -1,6 +1,7 @@
 import React, { useRef } from "react"
 import { Link, useHistory  } from "react-router-dom"
 import "./login.css"
+import logo from "../auth/Qlogo.png";
 
 
 export const Login = props => {
@@ -29,34 +30,40 @@ export const Login = props => {
     }
 
     return (
-        <main className="container--login">
+        <main>
             <dialog className="dialog dialog--auth" ref={existDialog}>
                 <div>User does not exist</div>
                 <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
             </dialog>
 
-            <section>
-                <form className="form--login" onSubmit={handleLogin}>
+            <section className="login-container">
+            <header>     
+          <div className="login-header">
+            <img src={logo} alt="Starts With Q logo"/>
+          </div>
+        </header>
+                <form className="login-form" onSubmit={handleLogin}>
                     <h2>Please sign in</h2>
-                    <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
+                    <fieldset className="login-email">
                         <input ref={email} type="email"
                             id="email"
                             size="22"
                             className="form-control"
-                            // placeholder="Email address"
+                            placeholder="Email address"
                             required autoFocus />
                     </fieldset>
                     <fieldset>
-                        <button type="submit">
+                        <button type="submit" className="login-submit">
                             Sign in
                         </button>
                     </fieldset>
                 </form>
-                
+                <p></p>
+                <p></p>
+                <h6 className="login-register"><Link to="/register">Not a member yet?</Link></h6>  
             </section>
             <section className="register" >
-             <div><Link to="/register">Not a member yet?</Link></div>   
+              
             </section>
         </main>
     )

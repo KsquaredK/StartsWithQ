@@ -49,7 +49,7 @@ export const FindWordSearch = () => {
       <>
         <header>     
           <div className="header">
-            <img src={logo} alt="Starts With Q logo" />
+            <img src={logo} alt="Starts With Q logo"/>
           </div>
         </header>
         <form className="findWordForm">
@@ -64,7 +64,7 @@ export const FindWordSearch = () => {
                       key="searchLetterId"
                       required
                       onChange={handleControlledInputChange}>
-                      <option className="dropdown-label" value="0"> first choose a letter </option>
+                      <option className="dropdown-label" value="0"> first choose a letter</option>
                       {searchLetters.map((s) => (
                       <option className="dropdown-label" key={s.id} value={s.name}>
                         {s.name}

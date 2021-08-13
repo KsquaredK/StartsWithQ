@@ -5,6 +5,7 @@ import { NavBar } from "./nav/NavBar";
 import { FindWordProvider } from "./FindWord/FindWordProvider"
 import { Login } from "./auth/login";
 import { Register } from "./auth/register";
+import Footer from "./nav/Footer.js"
 import "./StartsWithQ.css";
 
 /* +++++++ PSEUDO-CODE ++++++++  
@@ -24,6 +25,7 @@ export const StartsWithQ = () => (
             <>
               <NavBar />
               <ApplicationViews />
+              <Footer />
             </>
           );
         } else {

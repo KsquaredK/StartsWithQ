@@ -1,14 +1,11 @@
+
 .navbar {
+    margin-top: 3rem;
     padding-left: 5em;
     background-color: #7C5E82;
     font-family: 'Raleway', sans-serif;
 }
 
-
-/* .navbar-brand {
-    display: flex;
-    align-items: center;
-  } */
 
 a.title.navbar-brand {
     color: white;
@@ -26,6 +23,14 @@ a.title.navbar-brand {
 .navbar-text.motto {
     color: #DDDE9D;
 }
+
+/* .img {
+    height: auto; 
+    width: auto; 
+    max-width: 58px; 
+    max-height: 53px;
+
+} */
 
 /*  #7C5E82 dark purple
     ##B9A5C3ff orig navbar purple */

@@ -12,9 +12,14 @@ export const FindWordList = ()  => {
   const [userWordChoice, setUserWordChoice] = useState({})
   const currentUserId = parseInt(localStorage.getItem("startswithq_user"));
   console.log(currentUserId)
-  
 
-   
+//   const removePhrases = () => {
+//   const pattern = " "
+//   const  unfilteredWords = [...words]
+//   filtered = unfilteredWords.filter(function (str) 
+//   { return str.includes(pattern); }) 
+
+// }
   //  *--------- user input to save one or more words in list to local db ---*
   // If the word to be saved has a chosenLetter matching the name of
   // one of the searchletters, create a new object with these properties,
@@ -73,29 +78,4 @@ export const FindWordList = ()  => {
     </>
   )}
 
-
-  // return (
-    
-  //     <section className="word-list">
-  //     <h2>Here are your words</h2> 
-  //     <Row>
-  //       <Col sm>
-  //         <Card className="word__list__card">
-  //             {words.map((word, index) => {
-  //               return (
-  //               <CardBody className="word" key={index} value={word.word}>
-  //                 <CardTitle className="word__detail">
-  //                   { word.word })
-  //                 </CardTitle>
-  //                 <Button className="word-btn" onClick={(event, index) => {event.preventDefault()}, handleSaveUserWord(word)}>save</Button>
-  //               </CardBody>
-  //               )}
-  //             )
-  //           }
-  //           </Card>
-  //         </Col>
-  //     </Row>
-  //     </section>
-    
-  // )}
   
