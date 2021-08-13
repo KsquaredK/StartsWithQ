@@ -1,6 +1,4 @@
-#README
-
-# Starts With Q (v. 1.0)
+# Starts With Q ### v. 1.0
 
 This web app makes it easy for word game players to find and study obscure dictionary words they need in a pinch. Search for dictionary words that start with q, x, or z, and save them to private libraries for study purposes.
 
