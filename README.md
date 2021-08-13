@@ -19,7 +19,7 @@ Future versions will permit searching for words which contain q, x, or z, and se
 • Clone or fork dummy data for this app at https://github.com/KsquaredK/StartsWithQ-API 
 
 ### ERD
-![image](assets/ERD_StartsWithQ.png)
+![image](https://github.com/KsquaredK/StartsWithQ/blob/main/src/components/assets/ERD_StartsWithQ.png)
 
 On dbdiagram: https://dbdiagram.io/d/60c797390c1ff875fcd4c914
 
