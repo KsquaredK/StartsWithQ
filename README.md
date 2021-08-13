@@ -8,7 +8,7 @@
 
 This web app makes it easy for word game players to find and study obscure dictionary words they need in a pinch. Search for dictionary words that start with q, x, or z, and save them to private libraries for study purposes.
 
-Future versions will permit searching for words containing these three letters, and searching by length of word and which position search letter occurs in word. Users will be able to sort their libraries alphabetically, by date saved, and by word length.
+Future versions will permit searching for words which contain q, x, or z, and searching by length of word, and by which position the letter occurs in a word. Users will be able to sort their libraries alphabetically, by date saved, and by word length.
 
 ## Using this app
 
