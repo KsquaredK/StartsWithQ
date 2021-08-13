@@ -1,6 +1,5 @@
 
 •	Link to or insert an image (or both) of your Wireframe
-![image](https://user-images.githubusercontent.com/39713451/129374589-8092edeb-b49c-47a6-a2fb-83f03afdedfb.png)
 
 #README
 
@@ -22,6 +21,10 @@ Future versions will permit searching for words which contain q, x, or z, and se
 ![image](https://github.com/KsquaredK/StartsWithQ/blob/main/src/components/assets/ERD_StartsWithQ.png)
 
 On dbdiagram: https://dbdiagram.io/d/60c797390c1ff875fcd4c914
+
+### Wireframe
+![image](https://github.com/KsquaredK/StartsWithQ/blob/main/src/components/assets/StartsWithQ_wireframe.png)
+On Sketchboard: https://sketchboard.me/PCEnKMysdbYx
 
 
 
