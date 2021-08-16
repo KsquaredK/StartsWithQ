@@ -13,6 +13,8 @@ Future versions will permit searching for words which contain q, x, or z, and se
 
 • Clone or fork dummy data for this app at https://github.com/KsquaredK/StartsWithQ-API 
 
+• 3rd-party API: This app uses Datamuse's open source read-only [API](https://www.datamuse.com/api/).
+
 ### ERD
 ![image](https://github.com/KsquaredK/StartsWithQ/blob/main/src/components/assets/ERD_StartsWithQ.png)
 
