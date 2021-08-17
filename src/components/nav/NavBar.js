@@ -33,7 +33,10 @@ export const NavBar = (props) => {
               <NavLink className="text-white" href="/library/z">Z Library</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink onClick={Logout} className="text-white" href="/">Logout</NavLink>
+              <NavLink className="empty-link" color="#C3B2CB" href="/library/z"></NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink onClick={Logout} className="text-white" id="logout" href="/">Logout</NavLink>
             </NavItem>
             <NavbarText style={{color: '#E6E7BB', textDecoration: 'none'}}>your wordgame superpower</NavbarText>
             </Nav>

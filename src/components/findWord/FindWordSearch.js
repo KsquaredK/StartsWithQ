@@ -5,6 +5,19 @@ import { Button } from 'reactstrap';
 import "./FindWord.css";
 import logo from "../auth/Qlogo.png";
 
+/* ======= PSEUDOCODE = MORE FEATURES ======= 
+Users can search for words that have Q, X, or Z in them (exploiting what code can do that our brains can’t),
+Users can search for words by number of letters and position in word where the tricky letter occurs. For example, 
+they can search for an 8-letter word with an X in the 5th position to discover the word ‘relaxant”. Or just 
+search for 5-letter words with Q in them.
+
+
+I want to improve the quality of search results by removing hyphenated words, phrases and proper nouns.
+
+Super stretch goal: check words fetched from my 3rd party API (Datamuse) against Merriam-Webster’s API 
+(which only allows single word fetch calls), and remove all words from app state that are not found in M-W, 
+since it’s the most used authority in word games. */
+
 
 
 export const FindWordSearch = () => {
