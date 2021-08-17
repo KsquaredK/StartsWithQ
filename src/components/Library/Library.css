@@ -8,12 +8,14 @@ section {
   font-family: 'Raleway', sans-serif;
   font-size: 14px;
 }
-
+/* ======= Using wrap-reverse to change filtered order of library list ====*/
 .library-list {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
+    /* flex-direction: column-reverse; */
     justify-content: space-between;
     margin-bottom: 2rem;
+    direction: rtl;
   }
 
 .library-card {

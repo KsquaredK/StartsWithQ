@@ -16,12 +16,16 @@ a.title.navbar-brand {
 }
 
 .navbar-text {
-    margin-left: 10rem;
+    margin-left: 7rem;
     color: #DDDE9D ;
 }
 
 .navbar-text.motto {
     color: #DDDE9D;
+}
+
+#logout-space {
+    margin-left: 2rem;
 }
 
 /* .img {

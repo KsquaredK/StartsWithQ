@@ -47,13 +47,32 @@ export const LibraryList = () => {
     setLibraryWords(libraryWords)
     }, [foundLetter, userWords])
 
+  /* The sort below has instead been chained in the return, but this may be useful for alphabetical sort */
+    // const sortWordsByLengthInAlpha = () => {
+    //   libraryWordsToSort.sort((firstItem, secondItem) => firstItem.length - secondItem.length);
+    //   return 
+
+//     const sortedWordsByDateSaved = [...libraryWords].sort((a, b) => {
+//       return (
+//         b.word.length -
+//         a.word.length
+//       );
+// });
+
+/* ======= Check Library.css: I'm using wrap-reverse to change filtered order of library list ====*/
   return (
     <>
       <h2>
         {headerLetter} Library
       </h2>
       <section className="library-list">
-        {libraryWords.map(libraryWord => {
+        {libraryWords.sort((b, a) => {
+      return (
+        a.word.length -
+        b.word.length
+      );
+      })
+      .map(libraryWord => {
           return (
             <LibraryCard key={libraryWord.id} libraryWord={libraryWord} letter={letter}/>
             )

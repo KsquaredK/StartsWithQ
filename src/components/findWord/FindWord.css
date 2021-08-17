@@ -96,7 +96,7 @@ header {
   max-width: 13%;
   text-align: center;
   background-color: #7C5E82 ;
-  box-shadow: rgb(128 128 128 / 10%) 0.1rem 0.1rem;
+  box-shadow: rgb(128 128 128 / 12%) 0.18rem 0.18rem;
   color: white;
   margin: 0 30rem 0 13.5rem;
 }
@@ -104,6 +104,7 @@ header {
 #searchLetterId:hover {
   background-color: #A8ACD1;
   color: #FFF;
+  box-shadow: rgb(128 128 128 / 40%) 0.18rem 0.18rem;
 }
 
 /* .btn {
@@ -120,7 +121,7 @@ section {
 .word {
   flex-basis: 30%;
   margin: 1rem;
-  box-shadow: rgb(128 128 128 / 19%) 0.25rem 0.35rem;
+  box-shadow: rgb(128 128 128 / 12%) 0.18rem 0.18rem;
   margin: 1em;
   padding: 1em;
   background-color: #F9D7A4;
@@ -148,7 +149,7 @@ section {
 
 .word-btn {
   background-color: #CDDE9D;
-  box-shadow: rgb(128 128 128 / 10%) 0.1rem 0.1rem;
+  box-shadow: rgb(128 128 128 / 12%) 0.18rem 0.18rem;
   border: none;
   /* margin: 0 66rem 0 13.5rem; */
   padding-left: 1rem;
@@ -158,6 +159,7 @@ section {
 .word-btn:hover {
   background-color: #7C5E82;
   color: #FFF;
+  box-shadow: rgb(128 128 128 / 40%) 0.18rem 0.18rem;
 }
 
 .word-btn:active {
@@ -168,7 +170,8 @@ section {
 
 button.btn.btn-secondary {
   background-color: #7C5E82;
-  box-shadow: rgb(128 128 128 / 10%) 0.1rem 0.1rem;
+  box-shadow: rgb(128 128 128 / 12%) 0.18rem 0.18rem;
+  border: none;
   margin: 0 63rem 2rem 13.5rem;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -178,10 +181,11 @@ button.btn.btn-secondary {
 button.btn.btn-secondary:hover {
     background-color: #A8ACD1;
     color: #FFF;
+    box-shadow: rgb(128 128 128 / 40%) 0.18rem 0.18rem;
 }
 
 button.save-btn {
-  box-shadow: rgb(128 128 128 / 10%) 0.1rem 0.1rem;
+  box-shadow: rgb(128 128 128 / 12%) 0.18rem 0.18rem;
   border: none;
   font-size: x-small;
   background-color: #C2BCD3;
@@ -191,6 +195,7 @@ button.save-btn {
 button.save-btn:hover {
   background-color: #A8ACD1;
   color: #FFF;
+  box-shadow: rgb(128 128 128 / 40%) 0.18rem 0.18rem;
 }
 
 .dropdown-label {
