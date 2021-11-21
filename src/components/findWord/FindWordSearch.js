@@ -87,6 +87,26 @@ export const FindWordSearch = () => {
                   <p></p>  
 
               </div>
+{/* Search for words that end with q/x/z: refactor functions, add search to FindWordPRovider */}
+              {/* <div className="form-group">
+                  <select
+                      name="searchLetter"
+                      id="searchLetterId"
+                      className="form-control"
+                      value={searchLetters.id}
+                      key="searchEndLetterId"
+                      required
+                      onChange={handleControlledInputChange}>
+                      <option className="dropdown-label" value="0"> Or choose the letter your words end with</option>
+                      {searchLetters.map((s) => (
+                      <option className="dropdown-label" key={s.id} value={s.name}>
+                        {s.name}
+                      </option>
+                    ))}
+                  </select>
+                  <p></p>  
+              </div> */}
+
           </fieldset>  
           
             <Button
@@ -102,4 +122,18 @@ export const FindWordSearch = () => {
     </>
     );}
 
+    /*  ======== ADVANCED SEARCH ======
+    use wildcard fetch? 
+    https://api.datamuse.com/words?sp=*q
+    https://api.datamuse.com/words?sp=??z?????
+    
+    1.) Ends with ${searchLetter} should be easy: interpolate search letter into 
+    fetch on line 107, like this?
+    return fetch(`https://api.datamuse.com/words?sp=*${letter}&max=400`) (works in Postman)
+    
+    2.) Search for word that's x letters long with ${searchLetter} in the nth position
+
+    Note: think through UI & data flow on search page. Is it multi-search?
+    
+    */
    
