@@ -32,6 +32,7 @@ export const FindWordProvider = (props) => {
     const [searchLetters, setSearchLetters] = useState([]);
     const [chosenLetter, setChosenLetter] = useState("");
     const [libraryWords, setLibraryWords] = useState([]);
+    const [wordsByLastLetter, setWordsByLastLetter] = useState([]);
     const currentUser = parseInt(localStorage.getItem("startswithq_user"));
 
     // return array of values used as search terms from permanent state
@@ -45,6 +46,13 @@ export const FindWordProvider = (props) => {
       return fetch(`https://api.datamuse.com/words?sp=${letter}*&max=400`)
       .then(res => res.json())
       .then(setWords)
+  }
+
+  //return array of objects (words filtered by search terms) from 3rd party API
+  const getWordsByLastLetter = (letter) => {
+    return fetch(`https://api.datamuse.com/words?sp=*${letter}&max=400`)
+    .then(res => res.json()
+    .then(setWordsByLastLetter))
   }
 
   // return fetch(`https://api.datamuse.com/words?sp=*${letter.replace(/"/g,"")}`)
@@ -85,6 +93,9 @@ export const FindWordProvider = (props) => {
             words,
             getWords,
             setWords,
+            wordsByLastLetter,
+            getWordsByLastLetter,
+            setWordsByLastLetter,
             searchLetters,
             getSearchLetters,
             setSearchLetters,
