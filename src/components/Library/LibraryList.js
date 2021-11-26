@@ -4,14 +4,13 @@ import { FindWordContext } from "../FindWord/FindWordProvider";
 import { LibraryCard } from "./LibraryCard"
 import "./Library.css"
 
-
 // when user clicks on nav (: letter ) to library
 
 export const LibraryList = () => {
   /* access searchLetters.name, useParams string in order to find corresponding searchLetters.id of letter clicked in nav
-     access local storage.id in order to fetch words saved to db by current user
-     set searched letter to state as foundLetter, update
-     set user's words filtered by searched letter to state, update
+  access local storage.id in order to fetch words saved to db by current user
+  set searched letter to state as foundLetter, update
+  set user's words filtered by searched letter to state, update
      change useParams' {letter} to upper case in header */
   /* ======= Hooks =============*/
   const {userWords, getUserWords, searchLetters, getSearchLetters} = useContext(FindWordContext)
