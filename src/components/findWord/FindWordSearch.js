@@ -19,6 +19,25 @@ Super stretch goal: check words fetched from my 3rd party API (Datamuse) against
 (which only allows single word fetch calls), and remove all words from app state that are not found in M-W, 
 since it’s the most used authority in word games. */
 
+    /*  ======== ADVANCED SEARCH ======
+    use wildcard fetch? 
+    https://api.datamuse.com/words?sp=*q
+    https://api.datamuse.com/words?sp=??z?????
+    
+    1.) Ends with ${searchLetter} should be easy: interpolate search letter into 
+    fetch on line 107, like this?
+    return fetch(`https://api.datamuse.com/words?sp=*${letter}&max=400`) (works in Postman)
+    
+    2.) Search for word that's x letters long with ${searchLetter} in the nth position
+
+    Note: think through UI & data flow on search page. Is it multi-search?
+
+/* ======= UP NEXT ====== **Nov. 26**
+1. Get handleSearchWordsByLastLetter working AND rendering in FindWordList
+2. Write handleSearchWordsThatHaveLetter, get it working AND rendering in FindWordList
+3. Fix UI: radio buttons, submit button and CSS (see this MDN ref for underlying CSS: https://mdn.github.io/learning-area/html/forms/styling-examples/radios-styled.html)
+*/
+
 
 
 export const FindWordSearch = () => {
@@ -151,23 +170,42 @@ export const FindWordSearch = () => {
             }}>
               search</Button>{''}
         </fieldset>
+        <fieldset>
+        <legend>Choose where letter occurs in word</legend>
+        <p>
+          <label>
+            <input type="radio" name="letterPosition" value="startsWith" />
+
+            &nbsp;starts with
+          </label>
+          <label>
+            <input type="radio" name="letterPosition" value="endsWith" />
+            &nbsp;ends with
+          </label>
+          <label>
+            <input type="radio" name="letterPosition" value="isInWord" />
+            &nbsp;occurs in word
+          </label>
+        </p> 
+        <Button
+            className="btn"
+            color="secondary"
+            onClick={(event) => {
+              //Prevents the browser from submitting the form
+              event.preventDefault();
+              handleSearchWordsByLastLetter();
+            }}>
+              search</Button>{''}
+      </fieldset>
              
       </form>
     </>
     );}
 
-    /*  ======== ADVANCED SEARCH ======
-    use wildcard fetch? 
-    https://api.datamuse.com/words?sp=*q
-    https://api.datamuse.com/words?sp=??z?????
-    
-    1.) Ends with ${searchLetter} should be easy: interpolate search letter into 
-    fetch on line 107, like this?
-    return fetch(`https://api.datamuse.com/words?sp=*${letter}&max=400`) (works in Postman)
-    
-    2.) Search for word that's x letters long with ${searchLetter} in the nth position
 
-    Note: think through UI & data flow on search page. Is it multi-search?
+
+
+
     
-    */
+   
    
