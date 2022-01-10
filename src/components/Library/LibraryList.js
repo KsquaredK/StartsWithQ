@@ -11,7 +11,7 @@ export const LibraryList = () => {
   access local storage.id in order to fetch words saved to db by current user
   set searched letter to state as foundLetter, update
   set user's words filtered by searched letter to state, update
-     change useParams' {letter} to upper case in header */
+  change useParams' {letter} to upper case in header */
   /* ======= Hooks =============*/
   const {userWords, getUserWords, searchLetters, getSearchLetters} = useContext(FindWordContext)
   const {letter} = useParams()
@@ -64,6 +64,7 @@ export const LibraryList = () => {
       <h2>
         {headerLetter} Library
       </h2>
+      {/* <a href= */}
       <section className="library-list">
         {libraryWords.sort((b, a) => {
       return (
@@ -104,3 +105,27 @@ export const LibraryList = () => {
 
   - Stretchiest: Filter search results, removing capitalized words, phrases and hyphenated words, [array methods]
     and then verify words for wordgame viability by using Merriam-Webster API [add to ERD: verified boolean]*/
+
+
+
+    /* ===== Reverse Aplphabetical List 
+    Reference code from Ashton Monzi's BarkBook https://github.com/anmonzi/barkbook/blob/main/src/components/park/ParkList.js
+
+    useEffect(() => {
+        if (locationName === "all") {
+            setFilteredParks(parks)
+        } else {
+            setFilteredParks(parks.filter(park => park.location.name === locationName))
+        }
+    }, [locationName, parks]
+
+    my refactor:
+      useEffect(() => {
+    if 
+    const libraryWords = userWords.filter(userWord  => {
+      return userWord.searchLetterId === foundLetter?.id
+    })
+    setLibraryWords(libraryWords)
+    }, [foundLetter, userWords])
+
+    */
